@@ -12,7 +12,7 @@
     <header>
       <nav class="navbar navbar-expand-md bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Bug Bounty / Marketplace</a>
+          <a class="navbar-brand" href="#">GitPrize</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -22,18 +22,13 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Projects</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
               </li>
             </ul>
               <a class="btn btn-outline-success mx-2" type="submit">Login</a>
@@ -74,6 +69,8 @@
 
       <hr />
 
+      <!-- Elements for Projects Page -->
+      <h2>Projects</h2>
       <div class="container" id="gh-repo-issues">
         <ul class="list-group">
           <li class="list-group-item d-flex align-items-center">
@@ -91,7 +88,7 @@
               <h5 class="m-0">A list item</h5>
               <small>A description about the list item</small>
             </div>
-            <a href="#" class="ms-auto btn btn-dark">$25 <i class="fa-solid fa-hand-holding-dollar"></i></a>
+            <a href="#" class="ms-auto btn btn-success">$25 <i class="fa-solid fa-hand-holding-dollar"></i></a>
             <a href="#" class="mx-2 btn btn-dark" title="Claim Bounty"><i class="fa-solid fa-virus-slash"></i></a>
           </li>
           <li class="list-group-item d-flex align-items-center">
@@ -105,71 +102,109 @@
           </li>
         </ul>
       </div>
+      
+      <hr />
 
+      <h2>Contact</h2>
+      <section class="container">
+
+        <!--Section heading-->
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+        <!--Section description-->
+        <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+            a matter of hours to help you.</p>
+    
+        <div class="row">
+    
+            <!--Grid column-->
+            <div class="col-md-9 mb-md-0 mb-5">
+                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+    
+                    <!--Grid row-->
+                    <div class="row">
+    
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" id="name" name="name" class="form-control">
+                                <label for="name" class="">Your name</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+    
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" id="email" name="email" class="form-control">
+                                <label for="email" class="">Your email</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+    
+                    </div>
+                    <!--Grid row-->
+    
+                    <!--Grid row-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                <input type="text" id="subject" name="subject" class="form-control">
+                                <label for="subject" class="">Subject</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+    
+                    <!--Grid row-->
+                    <div class="row">
+    
+                        <!--Grid column-->
+                        <div class="col-md-12">
+    
+                            <div class="md-form">
+                                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                <label for="message">Your message</label>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <!--Grid row-->
+    
+                </form>
+    
+                <div class="text-center text-md-left">
+                    <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+                </div>
+                <div class="status"></div>
+            </div>
+            <!--Grid column-->
+    
+            <!--Grid column-->
+            <div class="col-md-3 text-center">
+                <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                        <p>Charlotte, NC 28210</p>
+                    </li>
+    
+                    <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                        <p>704 555 5555</p>
+                    </li>
+    
+                    <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                        <p>contact@gitprize.dev</p>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+    
+        </div>
+    
+    </section>
+
+    <hr />
 
     </main>
 
-    <!-- RIP THIS INTO A COMPONENT AFTER DEV -->
-    <footer class="container-fluid text-center text-lg-start bg-body-tertiary text-muted mt-auto">
-      <!-- Section: Social media -->
-      <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-        <!-- Left -->
-        <div class="me-5 d-none d-lg-block">
-          <span>Get connected with us on social networks:</span>
-        </div>
-        <!-- Left -->
-    
-        <!-- Right -->
-        <div>
-          <a href="" class="me-4 text-reset"><i class="fab fa-facebook-f"></i></a>
-          <a href="" class="me-4 text-reset"><i class="fab fa-twitter"></i></a>
-          <a href="" class="me-4 text-reset"><i class="fab fa-google"></i></a>
-          <a href="" class="me-4 text-reset"><i class="fab fa-instagram"></i></a>
-          <a href="" class="me-4 text-reset"><i class="fab fa-linkedin"></i></a>
-          <a href="" class="me-4 text-reset"><i class="fab fa-github"></i></a>
-        </div>
-        <!-- Right -->
-      </section>
-      <!-- Section: Social media -->
-    
-      <!-- Section: Links  -->
-      <section class="">
-        <div class="container text-center text-md-start mt-5">
-          <!-- Grid row -->
-          <div class="row mt-3">
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              <!-- Content -->
-              <h6 class="text-uppercase fw-bold mb-4">
-                <i class="fas fa-gem me-3"></i>GitPrize
-              </h6>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis deleniti alias repudiandae excepturi totam sint!
-              </p>
-            </div>
-            <!-- Grid column -->
-    
-            <!-- Grid column -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              <!-- Links -->
-              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-              <p class="my-1"><i class="fas fa-home me-3"></i>Charlotte, NC 28210, US</p>
-              <p class="my-1"><i class="fas fa-envelope me-3"></i>info@gitprize.dev</p>
-              <p class="my-1"><i class="fas fa-phone me-3"></i>704 555 5555</p>
-              <p class="my-1"><i class="fas fa-print me-3"></i>704 555 5555</p>
-            </div>
-            <!-- Grid column -->
-          </div>
-          <!-- Grid row -->
-        </div>
-      </section>
-      <!-- Section: Links  -->
-    
-      <!-- Copyright -->
-      <div class="text-center py-3"> © 2024 GitPrize, LLC</div>
-      <!-- Copyright -->
-    </footer>
-    <!-- END -->
 
     <script type="module" src="/src/main.jsx"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
