@@ -1,12 +1,14 @@
-import getStripe from '../lib/getStripe';
+import getStripe from '../lib/stripe';
+// import 'dotenv/config';
+// require('dotenv').config();
 
-export default function Home() {
+export default function Checkout() {
   async function handleCheckout() {
     const stripe = await getStripe();
     const { error } = await stripe.redirectToCheckout({
       lineItems: [
         {
-          price: process.env.NEXT_PUBLIC_STRIPE_PRICE_ID,
+          price: 1099,
           quantity: 1,
         },
       ],

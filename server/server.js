@@ -3,6 +3,7 @@ const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
+const stripe = require('stripe')('sk_test_51OpCbqEMmWm7Z5rrdCDdTsC3CH1njTK8TrnzyxYbM2tnYVAqxTDymjJTag8nJVbuowsEHQvfx0fZIf9Wd0rOFDZE00WWcQLe0c');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -28,9 +29,37 @@ const startApolloServer = async () => {
     context: authMiddleware
   }));
 
+
+  // Stripe Checkout Session
+  app.post('/create-checkout-session', async (req, res) => {
+    const session = await stripe.checkout.sessions.create({
+      line_items: [
+        {
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: 'Bounty',
+            },
+            unit_amount: 2000,
+          },
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      success_url: 'http://localhost:3000/success',
+      cancel_url: 'http://localhost:3000/cancel',
+    });
+
+    res.redirect(303, session.url);
+  });
+
+
+
   if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/dist')));
 
+
+    // Catch-all
     app.get('*', (req, res) => {
       res.sendFile(path.join(__dirname, '../client/dist/index.html'));
     });
@@ -46,3 +75,15 @@ const startApolloServer = async () => {
 
 // Call the async function to start the server
 startApolloServer();
+
+
+// // For Stripe utilization
+// const stripe = require('stripe')('sk_test_51OpCbqEMmWm7Z5rrdCDdTsC3CH1njTK8TrnzyxYbM2tnYVAqxTDymjJTag8nJVbuowsEHQvfx0fZIf9Wd0rOFDZE00WWcQLe0c');
+
+// const paymentIntent = await stripe.paymentIntents.create({
+//   amount: 1099,
+//   currency: 'usd',
+//   payment_method_types: ['card'],
+// });
+// const clientSecret = paymentIntent.client_secret
+// // Pass the client secret to the client

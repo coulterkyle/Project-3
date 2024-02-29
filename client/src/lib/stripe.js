@@ -1,12 +1,13 @@
-require('dotenv').config();
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+// require('dotenv').config();
+// import 'dotenv/config';
+// const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
 import { loadStripe } from '@stripe/stripe-js';
 
 let stripePromise;
 const getStripe = () => {
   if (!stripePromise) {
-    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+    stripePromise = loadStripe(process.env.REACT_APP_NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
   }
   return stripePromise;
 };
@@ -30,7 +31,7 @@ const getStripe = () => {
 //   .then(data => console.log(data))
 //   .catch(error => console.error('Error:', error));
 
-// export default getStripe;
+export default getStripe;
 
 // const paymentIntent = await stripe.paymentIntents.create({
 //   amount: 1000, // amount in cents

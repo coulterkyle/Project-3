@@ -8,6 +8,9 @@ import Error from './pages/Error';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Success from './pages/Success';
+import Cancel from './pages/Cancel';
+// import CheckoutSession from './pages/CheckoutSession';
 
 
 const router = createBrowserRouter([
@@ -26,6 +29,18 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />
       },
+      {
+        path: '/success',
+        element: <Success />
+      },
+      {
+        path: '/cancel',
+        element: <Cancel />
+      },
+      // {
+      //   path: '/create-checkout-session',
+      //   element: <CheckoutSession />
+      // },
     ]
   }
 ]);
