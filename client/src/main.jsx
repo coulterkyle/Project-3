@@ -8,7 +8,7 @@ import Error from './pages/Error';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-
+import Issues from './pages/Issues'
 
 const router = createBrowserRouter([
   {
@@ -25,7 +25,10 @@ const router = createBrowserRouter([
       }, {
         path: '/signup',
         element: <Signup />
-      },
+      }, {
+        path: '/project/issues',
+        element: <Issues />
+      }
     ]
   }
 ]);
