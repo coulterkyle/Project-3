@@ -5,7 +5,7 @@ export default function issue( { issues } ) {
         <ul className="list-group">
             {issues.map((data, index) => 
                 <li key={index} className="list-group-item d-flex align-items-center">
-                <div className="badge text-bg-info rounded-pill">5</div>
+                <div className="badge text-bg-info rounded-pill">{data.vote}</div>
                     <div className="text-start mx-2">
                         <h5 className="m-0">{data.title}</h5>
                         <small>{data.description}</small>
