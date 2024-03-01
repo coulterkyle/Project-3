@@ -37,6 +37,7 @@ const router = createBrowserRouter([
         path: '/cancel',
         element: <Cancel />
       },
+      // DO WE NEED A BOUNTY ROUTE?
       // {
       //   path: '/create-checkout-session',
       //   element: <CheckoutSession />

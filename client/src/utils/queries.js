@@ -8,3 +8,11 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($Bounty: ID!) {
+    checkout(Bounty: $Bounty) {
+      session
+    }
+  }
+`;

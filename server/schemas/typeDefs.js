@@ -4,6 +4,7 @@ const typeDefs = `
     firstName: String
     lastName: String
     email: String
+    github: String
   }
 
   type Auth {
