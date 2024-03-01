@@ -1,4 +1,4 @@
-export default function issue( { issues } ) {
+export default function issue({ issues }) {
 
     return (
         <div className="container" id="gh-repo-issues">
@@ -10,7 +10,7 @@ export default function issue( { issues } ) {
                         <h5 className="m-0">{data.title}</h5>
                         <small>{data.description}</small>
                     </div>
-                    <a href="#" className="ms-auto btn btn-success">{data.bounty} <i className="fa-solid fa-hand-holding-dollar"></i></a>
+                    <a href="#" data-id={data.id} className="ms-auto btn btn-success">{data.bounty} <i className="fa-solid fa-hand-holding-dollar"></i></a>
                     <a href="#" className="mx-2 btn btn-dark" title="Claim Bounty"><i className="fa-solid fa-virus-slash"></i></a>
                 </li>
             )}

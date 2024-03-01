@@ -25,6 +25,9 @@ const router = createBrowserRouter([
       }, {
         path: '/signup',
         element: <Signup />
+      }, {
+        path: '/project',
+        element: <Error /> //Change later...
       }, { // There should be a page between this where you find the GH user & repo and then are directed to issues
         path: '/project/:userId/:repoId',
         element: <Issues />
