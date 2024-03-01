@@ -1,9 +1,15 @@
-const { Schema } = require('mongoose');
+const mongoose = require('mongoose');
 
-// This is a subdocument schema, it won't become its own model but we'll use it as the schema for the User's `savedIssues` array in User.js
+const { Schema } = mongoose;
+
+const Vote = require('./Vote');
+const Bounty = require('./Bounty');
+
 const issueSchema = new Schema({
-
-  // saved issue id from Github API
+  userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+  },
   issueId: {
     type: String,
     required: true,
@@ -11,11 +17,17 @@ const issueSchema = new Schema({
   title: {
     type: String,
   },
+  description: {
+    type: String,
+  },
   state: {
     type: String,
   },
+  votes: [Vote.schema],
+  bounty: [Bounty.schema],
 });
 
-module.exports = issueSchema;
+const Issue = mongoose.model('Issue', issueSchema);
 
+module.exports = Issue;
 

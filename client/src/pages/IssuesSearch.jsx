@@ -34,14 +34,15 @@ const SearchIssues = () => {
 
             const { items } = await response.json();
 
-            const bookData = items.map((issue) => ({
+            const issueData = items.map((issue) => ({
                 issueId: issue.id,
                 owner: issue.owner.login,
                 title: issue.title,
                 state: issue.state,
+                description: issue.body,
             }));
 
-            setSearchedBooks(bookData);
+            setSearchedIssues(issueData);
             setUserSearchInput('');
             setRepoSearchInput('');
         } catch (err) {
@@ -52,7 +53,7 @@ const SearchIssues = () => {
     // create function to handle saving an issue to our database
     const handleSaveIssue = async (issueId) => {
         // find the issue in `searchedIssue` state by the matching id
-        const issueToSave = searchedIssue.find((issue) => issue.issueId === issueId);
+        const issueToSave = searchedIssues.find((issue) => issue.issueId === issueId);
 
         // get token
         const token = Auth.loggedIn() ? Auth.getToken() : null;

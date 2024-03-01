@@ -2,9 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-
-const issueSchema = require('./Issue');
-
+const Issue = require('./Issue')
 
 const userSchema = new Schema({
   firstName: {
@@ -22,12 +20,17 @@ const userSchema = new Schema({
     required: true,
     unique: true
   },
+  githubUsername:{
+    type: String,
+    required: true,
+    unique: true
+  },
   password: {
     type: String,
     required: true,
     minlength: 5
   },
-  savedIssues: [issueSchema]
+  savedIssues: [Issue.schema]
 });
 
 // set up pre-save middleware to create password
