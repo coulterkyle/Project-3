@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       }, {
         path: '/signup',
         element: <Signup />
-      }, {
+      }, { // There should be a page between this where you find the GH user & repo and then are directed to issues
         path: '/project/issues',
         element: <Issues />
       }
