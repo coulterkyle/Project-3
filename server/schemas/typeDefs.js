@@ -11,8 +11,13 @@ const typeDefs = `
     user: User
   }
 
+  type Checkout {
+    session: ID
+  }
+
   type Query {
     user: User
+    checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
