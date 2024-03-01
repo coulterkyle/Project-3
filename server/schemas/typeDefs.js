@@ -5,6 +5,13 @@ const typeDefs = `
     lastName: String
     email: String
     github: String
+    savedIssues: [Issue]
+  }
+
+  type Issue {
+    issueId: String!
+    title: String
+    state: String
   }
 
   type Auth {
@@ -32,6 +39,8 @@ const typeDefs = `
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
+    saveIssue(issueId: String!, title: String, state: String): User
+    removeIssue(issueId: String!): User
   }
 `;
 

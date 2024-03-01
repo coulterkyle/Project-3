@@ -78,7 +78,33 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
+    },
+    saveIssue: async (parent, issueData, context) => {
+      console.log(issueData)
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $addToSet: { savedIssues: issueData },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw AuthenticationError;
+    },
+    removeIssue: async (parent, { issueId }, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedIssues: { issueId } } },
+          { new: true }
+        );
+      }
+      throw AuthenticationError;
+    },
   }
 };
 

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Bug Bounty</title>
+  </head>
+  <body class="min-vh-100 d-flex flex-column">
+
+    <!-- Content from React is pushed into `root` div -->
+    <div id="root"></div>
+    <!-- End Root React -->
+
+    <div class="jumbotron jumbotron-fluid bg-info py-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-6">
+            <h1 class="display-4">Fluid jumbotron</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="#" role="button">Join the Hunt</a>
+            </p>
+          </div>
+          <div class="d-sm-none col-md-6 col-lg-6">
+            &nbsp;
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="container-fluid mt-4">
+      <div class="container">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium rerum neque sed explicabo dolores quae qui exercitationem ipsa, numquam et dolorem, id minima velit atque nemo enim, quo dicta ea. Explicabo et dolorum, fugit harum unde cumque facere impedit numquam esse error inventore voluptates voluptatem quos voluptas id? Ratione, non mollitia. Nisi nobis minima, repellendus delectus repellat itaque maxime architecto tempore non, amet magnam dolores. Tempora magni perspiciatis adipisci optio. Error magni quam deserunt fuga, repellat nam perferendis harum incidunt officia maxime vitae deleniti, enim laborum veritatis magnam quisquam, eligendi recusandae. Deserunt tempore nisi, quidem enim et numquam quibusdam.
+      </div>
+
+      <hr />
+
+      <!-- Elements for Projects Page -->
+      <h2>Projects</h2>
+      <div class="container" id="gh-repo-issues">
+        <ul class="list-group">
+          <li class="list-group-item d-flex align-items-center">
+            <div class="badge text-bg-dark rounded-pill">5</div>
+            <div class="text-start mx-2">
+              <h5 class="m-0">A list item</h5>
+              <small>A description about the list item</small>
+            </div>
+            <a href="#" class="ms-auto btn btn-dark">Contribute <i class="fa-solid fa-hand-holding-dollar"></i></a>
+            <a href="#" class="mx-2 btn btn-dark" title="Claim Bounty"><i class="fa-solid fa-virus-slash"></i></a>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <div class="badge text-bg-info rounded-pill">5</div>
+            <div class="text-start mx-2">
+              <h5 class="m-0">A list item</h5>
+              <small>A description about the list item</small>
+            </div>
+            <a href="#" class="ms-auto btn btn-success">$25 <i class="fa-solid fa-hand-holding-dollar"></i></a>
+            <a href="#" class="mx-2 btn btn-dark" title="Claim Bounty"><i class="fa-solid fa-virus-slash"></i></a>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <div class="badge text-bg-dark rounded-pill">5</div>
+            <div class="text-start mx-2">
+              <h5 class="m-0">A list item</h5>
+              <small>A description about the list item</small>
+            </div>
+            <a href="#" class="ms-auto btn btn-dark">Contribute <i class="fa-solid fa-hand-holding-dollar"></i></a>
+            <a href="#" class="mx-2 btn btn-dark" title="Claim Bounty"><i class="fa-solid fa-virus-slash"></i></a>
+          </li>
+        </ul>
+      </div>
+      
+      <hr />
+
+      <h2>Contact</h2>
+      <section class="container">
+
+        <!--Section heading-->
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+        <!--Section description-->
+        <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+            a matter of hours to help you.</p>
+    
+        <div class="row">
+    
+            <!--Grid column-->
+            <div class="col-md-9 mb-md-0 mb-5">
+                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+    
+                    <!--Grid row-->
+                    <div class="row">
+    
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" id="name" name="name" class="form-control">
+                                <label for="name" class="">Your name</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+    
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" id="email" name="email" class="form-control">
+                                <label for="email" class="">Your email</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+    
+                    </div>
+                    <!--Grid row-->
+    
+                    <!--Grid row-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                <input type="text" id="subject" name="subject" class="form-control">
+                                <label for="subject" class="">Subject</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+    
+                    <!--Grid row-->
+                    <div class="row">
+    
+                        <!--Grid column-->
+                        <div class="col-md-12">
+    
+                            <div class="md-form">
+                                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                <label for="message">Your message</label>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <!--Grid row-->
+    
+                </form>
+    
+                <div class="text-center text-md-left">
+                    <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+                </div>
+                <div class="status"></div>
+            </div>
+            <!--Grid column-->
+    
+            <!--Grid column-->
+            <div class="col-md-3 text-center">
+                <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                        <p>Charlotte, NC 28210</p>
+                    </li>
+    
+                    <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                        <p>704 555 5555</p>
+                    </li>
+    
+                    <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                        <p>contact@gitprize.dev</p>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+    
+        </div>
+    
+    </section>
+
+    <hr />
+
+    </main>
+
+
+    <script type="module" src="/src/main.jsx"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>    
+  </body>
+</html>

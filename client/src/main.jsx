@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css'
 
 import App from './App.jsx';
 import Error from './pages/Error';
@@ -12,6 +11,7 @@ import Success from './pages/Success';
 import Cancel from './pages/Cancel';
 // import CheckoutSession from './pages/CheckoutSession';
 
+import Issues from './pages/Issues'
 
 const router = createBrowserRouter([
   {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     error: <Error />,
     children: [
       {
-        index: true, 
+        index: true,
         element: <Home />
       }, {
         path: '/login',
@@ -42,6 +42,10 @@ const router = createBrowserRouter([
       //   path: '/create-checkout-session',
       //   element: <CheckoutSession />
       // },
+      { // There should be a page between this where you find the GH user & repo and then are directed to issues
+        path: '/project/issues',
+        element: <Issues />
+      }
     ]
   }
 ]);
