@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
-        <footer className="container-fluid text-center text-lg-start bg-body-tertiary text-muted mt-auto">
-          <section id="social-media" className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <footer className="container-fluid text-center text-lg-start bg-body-primary text-muted mt-auto" data-bs-theme="dark">
+          <section id="social-media" className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom border-top">
             <div className="me-5 d-none d-lg-block">
               <span>Get connected with us on social networks:</span>
             </div>
@@ -27,7 +27,7 @@ export default function Footer() {
                   </p>
                 </div>
 
-                <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 d-none d-md-block">
                   <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
                   <p className="my-1"><i className="fas fa-home me-3"></i>Charlotte, NC 28210</p>
                   <p className="my-1"><i className="fas fa-envelope me-3"></i>info@gitprize.dev</p>
