@@ -11,13 +11,20 @@ const typeDefs = `
     user: User
   }
 
+  type Bounty {
+    _id: ID
+    amount: Float
+    user: User!
+    issue: Issue!
+  }
+
   type Checkout {
     session: ID
   }
 
   type Query {
     user: User
-    checkout(products: [ID]!): Checkout
+    checkout(Bounty: ID!): Checkout
   }
 
   type Mutation {
