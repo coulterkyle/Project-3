@@ -7,7 +7,8 @@ import Error from './pages/Error';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Issues from './pages/Issues'
+import Issues from './pages/Issues';
+import Repos from './pages/Repos';
 
 const router = createBrowserRouter([
   {
@@ -25,11 +26,14 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />
       }, { // There should be a page between this where you find the GH user & repo and then are directed to issues
-        path: '/project/issues',
+        path: '/project/:userId/:repoId',
         element: <Issues />
+      }, {
+        path: '/project/:userId',
+        element: <Repos /> //Change later...
       }
     ]
-  }
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
