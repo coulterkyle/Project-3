@@ -1,5 +1,6 @@
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
+import Navbar from './ui/navbar';
 
 function Nav() {
 
@@ -17,7 +18,7 @@ function Nav() {
                 <Link className="nav-link" to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/project/issues">Projects</Link>
+                <Link className="nav-link" to="/project/coulterkyle/Project-3">Projects</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="#">About</Link>
@@ -40,30 +41,23 @@ function Nav() {
       );
     } else {
       return (
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">GitPrize</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/project/issues">Projects</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="#">About</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="#">Contact</Link>
-              </li>
-            </ul>
-              <Link className="btn btn-outline-success mx-2" to="/login">Login</Link>
-              <Link className="btn btn-outline-success mx-2" to="/signup">Join Now</Link>
-          </div>
-        </div>
+        <Navbar
+          links={[
+            <Link key={1} className="nav-link" to="/">
+              Home
+            </Link>,
+            <Link key={1} className="nav-link" to="/project/coulterkyle/Project-3">
+              Projects
+            </Link>,
+            <Link key={1} className="nav-link" to="/about">
+              About
+            </Link>,
+            <Link key={1} className="nav-link" to="/contact">
+              Contact
+            </Link>
+
+          ]}
+        />
       );
     }
   }
@@ -71,7 +65,15 @@ function Nav() {
   return (
     <header className="mb-4">
       <nav className="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">GitPrize</a>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+        </button>
+
         {showNavigation()}
+        
+      </div>
       </nav>
     </header>
   );
