@@ -1,14 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css'
 
 import App from './App.jsx';
 import Error from './pages/Error';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-
+import Issues from './pages/Issues'
 
 const router = createBrowserRouter([
   {
@@ -25,7 +24,10 @@ const router = createBrowserRouter([
       }, {
         path: '/signup',
         element: <Signup />
-      },
+      }, { // There should be a page between this where you find the GH user & repo and then are directed to issues
+        path: '/project/issues',
+        element: <Issues />
+      }
     ]
   }
 ]);
