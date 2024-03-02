@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Issues from './pages/Issues';
 import Repos from './pages/Repos';
+import Contact from './pages/Contact';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,13 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />
       }, {
+        path: '/about',
+        element: <Error /> //Change later...
+      }, {
+        path: '/contact',
+        element: <Contact />
+      }, 
+      {
         path: '/project',
         element: <Error /> //Change later...
       }, { // There should be a page between this where you find the GH user & repo and then are directed to issues

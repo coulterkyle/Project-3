@@ -18,7 +18,7 @@ function Nav() {
                 <Link className="nav-link" to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/project/coulterkyle/Project-3">Projects</Link>
+                <Link className="nav-link" to="/project/coulterkyle">Projects</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="#">About</Link>
@@ -46,7 +46,7 @@ function Nav() {
             <Link key={1} className="nav-link" to="/">
               Home
             </Link>,
-            <Link key={1} className="nav-link" to="/project/coulterkyle/Project-3">
+            <Link key={1} className="nav-link" to="/project/coulterkyle">
               Projects
             </Link>,
             <Link key={1} className="nav-link" to="/about">
