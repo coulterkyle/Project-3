@@ -1,11 +1,8 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 
 const issueSchema = new Schema({
   issueId: {
     type: String,
-    required: true,
   },
   title: {
     type: String,
@@ -29,6 +26,8 @@ const issueSchema = new Schema({
   ],
   bounty: {
     type: Number,
+    min: 0,
+    default: 0
   },
   bountyIssuers: [
     {
@@ -38,7 +37,7 @@ const issueSchema = new Schema({
   ],
 });
 
-const Issue = mongoose.model('Issue', issueSchema);
+const Issue = model('Issue', issueSchema);
 
 module.exports = Issue;
 
