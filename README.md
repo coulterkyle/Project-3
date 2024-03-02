@@ -33,6 +33,10 @@ Developers:
 - Jared Elliott
 - Natalie Yaspo
 
+Tutorials:
+- Stripe Developers. "Node.js Express Starter." YouTube, 23 Apr. 2020,
+ https://www.youtube.com/watch?v=rPR2aJ6XnAc&t=548s
+
 ## License
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
