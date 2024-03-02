@@ -38,7 +38,7 @@ export default function Footer() {
             </div>
           </section>
         
-          <div className="text-center py-3"> © 2024 GitPrize, LLC</div>
+          <div className="text-center py-3 text-success"> © 2024 GitPrize, LLC</div>
         </footer>
     );
   }
