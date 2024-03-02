@@ -1,0 +1,31 @@
+[
+  {
+    "firstName": "Jared",
+    "lastName": "Elliott",
+    "email": "jared@example.com",
+    "githubUsername": "CLTJared",
+    "password": "password"
+  },
+  {
+    "firstName": "Kyle",
+    "lastName": "Coulter",
+    "email": "kyle@example.com",
+    "githubUsername": "coulterkyle",
+    "password": "password"
+  },
+  {
+    "firstName": "Deven",
+    "lastName": "Castoria",
+    "email": "deven@example.com",
+    "githubUsername": "dcast217",
+    "password": "password"
+  },
+  {
+    "firstName": "Natalie",
+    "lastName": "Yaspo",
+    "email": "natalie@example.com",
+    "githubUsername": "NatalieYaspo",
+    "password": "password"
+  }
+]
+  
