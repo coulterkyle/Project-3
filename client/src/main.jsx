@@ -10,6 +10,7 @@ import Signup from './pages/Signup';
 import Issues from './pages/Issues';
 import Repos from './pages/Repos';
 import Contact from './pages/Contact';
+import Users from './pages/Users';
 
 const router = createBrowserRouter([
   {
@@ -32,16 +33,15 @@ const router = createBrowserRouter([
       }, {
         path: '/contact',
         element: <Contact />
-      }, 
-      {
+      }, {
         path: '/project',
-        element: <Error /> //Change later...
-      }, { // There should be a page between this where you find the GH user & repo and then are directed to issues
-        path: '/project/:userId/:repoId',
-        element: <Issues />
+        element: <Users />
       }, {
         path: '/project/:userId',
         element: <Repos /> //Change later...
+      }, { // There should be a page between this where you find the GH user & repo and then are directed to issues
+        path: '/project/:userId/:repoId',
+        element: <Issues />
       }
     ]
   },
