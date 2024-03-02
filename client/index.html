@@ -35,6 +35,8 @@
             <div class="form-group">
               <label for="bounty-amount" class="col-form-label text-success">Bounty Amount:</label>
               <input type="text" class="form-control" id="bounty-amount">
+              <!-- Not sure if this is the correct syntax??? -->
+              <input data-bs-id=${data.id} data-bs-body=${data.body} hidden>
             </div>
             <!-- <div class="form-group">
               <label for="message-text" class="col-form-label">Message:</label>
@@ -65,7 +67,7 @@
       const modalBodyInput = exampleModal.querySelector('.modal-body input')
 
       modalTitle.textContent = `Add Bounty to issue: ${recipient}`
-      modalBodyInput.value = 'enter amount'
+      // modalBodyInput.value = 'enter amount'
     })
   </script>
   <script type="module" src="/src/main.jsx"></script>
