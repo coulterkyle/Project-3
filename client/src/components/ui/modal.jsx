@@ -4,8 +4,10 @@ const ModalComponent = () => {
   const [recipient, setRecipient] = useState('');
 
   const handleModalShow = (event) => {
+    event.preventDefault();
     const button = event.relatedTarget;
     const recipient = button.getAttribute('data-whatever');
+    console.log(recipient);
 
     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 

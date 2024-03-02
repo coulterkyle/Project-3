@@ -1,3 +1,5 @@
+// import ModalComponent from "./modal";
+
 export default function issue({ issues }) {
 
     return (
@@ -10,17 +12,17 @@ export default function issue({ issues }) {
                             <h5 className="m-0">{data.title}</h5>
                             <small>{data.description}</small>
                         </div>
-                        <button href="#"
-                            data-id={data.id}
+                        <button
+                            data-bs-id={data.id}
                             className="ms-auto btn btn-success"
                             type="button"
-                            data-toggle="modal"
-                            data-target="#exampleModal"
-                            data-whatever={data.title}
-                            data-body={data.body}>{data.bounty}
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                            data-bs-whatever={data.title}
+                            data-bs-body={data.body}>
+                                {data.bounty}
                             <i className="fa-solid fa-hand-holding-dollar"></i>
                         </button>
-                        <a href="#" data-id={data.id} className="ms-auto btn btn-success">{data.bounty} <i className="fa-solid fa-hand-holding-dollar"></i></a>
                         <a href="#" className="mx-2 btn btn-dark" title="Claim Bounty"><i className="fa-solid fa-virus-slash"></i></a>
                     </li>
                 )}
