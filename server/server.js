@@ -1,12 +1,12 @@
 const express = require('express');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
-const path = require('path');
+const { path, resolve } = require('path');
 const { authMiddleware } = require('./utils/auth');
 
-// require('dotenv').config({ path: './.env'});
+require('dotenv').config({ path: '../.env'});
 // const stripe = require('stripe')('sk_test_51OpCbqEMmWm7Z5rrdCDdTsC3CH1njTK8TrnzyxYbM2tnYVAqxTDymjJTag8nJVbuowsEHQvfx0fZIf9Wd0rOFDZE00WWcQLe0c');
-// const stripe = require('stripe')('STRIPE_PUBLISHABLE_KEY');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -18,10 +18,23 @@ const server = new ApolloServer({
   resolvers,
 });
 
+//::THIS SECTION IS FOR ALL STRIPE FEATURES::
+
 // //Just a test for Stripe
 // (async () => {
 // console.log(await stripe.plans.list());
 // })();
+
+// app.use('/', express.static(process.env.STATIC_DIR));
+
+// app.get('/', (req, res) => {
+//   const path = resolve('../client' + '/index/html');
+//   res.sendFile(path);
+// });
+
+// app.listen(3000, () => console.log('Running on http://localhost:3000'));
+
+// //::END OF STRIPE FEATURES::
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async () => {

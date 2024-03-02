@@ -19,6 +19,6 @@ const bountySchema = new Schema({
   }
 });
 
-const Product = mongoose.model('Bounty', bountySchema);
+const Bounty = mongoose.model('Bounty', bountySchema);
 
 module.exports = Bounty;
