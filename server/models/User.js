@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Issue = require('./Issue')
+const Issue = require('./Issue');
 
 const userSchema = new Schema({
   firstName: {
@@ -20,9 +20,8 @@ const userSchema = new Schema({
     required: true,
     unique: true
   },
-  githubUsername:{
+  githubUsername: {
     type: String,
-    required: true,
     unique: true
   },
   password: {
