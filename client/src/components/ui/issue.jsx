@@ -1,5 +1,3 @@
-// import ModalComponent from "./modal";
-
 export default function issue({ issues }) {
 
     return (

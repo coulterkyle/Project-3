@@ -1,5 +1,4 @@
 import Issue from './ui/issue.jsx';
-// import Modal from './ui/modal.jsx';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // Need to add some sort of functionality to the `bounty` to allow it to know if it should say 'Contribute' or 'Dollar Amt' instead of passing it explicit
