@@ -64,8 +64,7 @@ function Login(props) {
             ) : null}
 
             <div className="text-center text-md-left mt-3">
-              <a className="btn btn-success" >Submit</a>
-              {/* onClick="document.getElementById('login-form').submit();" */}
+              <button className="btn btn-success" >Submit</button>
             </div>
             <div className="status"></div>
           </form>

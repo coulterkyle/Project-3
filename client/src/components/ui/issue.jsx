@@ -1,3 +1,5 @@
+import Modal from './modal';
+
 export default function issue({ issues }) {
 
     return (
@@ -25,6 +27,8 @@ export default function issue({ issues }) {
                     </li>
                 )}
             </ul>
+
+            <Modal />
         </div>
     );
 }
