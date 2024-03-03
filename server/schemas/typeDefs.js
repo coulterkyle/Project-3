@@ -35,7 +35,9 @@ const typeDefs = `
     users: [User]
     issues: [Issue]
     issue(issueId: ID!): Issue
-    bounty: [Bounty]
+    bounties: [Bounty]
+    bounty(issueId: ID!): Bounty
+
   }
 
   type Mutation {

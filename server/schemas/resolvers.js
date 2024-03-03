@@ -31,9 +31,15 @@ const resolvers = {
       return issue;
 
     },
-    bounty: async (parent, args) => {
+    bounties: async (parent, args) => {
 
-      return await Bounty.find().populate('user');
+      return await Bounty.find().populate('bountyIssuer');
+
+    },
+    bounty: async (parent, { bountyId }) => {
+      const issue = await Bounty.findById(issueId).populate('bountIssuer')
+
+      return issue;
 
     },
   },
