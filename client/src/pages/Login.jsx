@@ -41,18 +41,18 @@ function Login(props) {
 
             <div className="row my-2">
               <div className="">
-                <div className="md-form mb-0">
-                  <label htmlFor="email" className="">Email address</label>
+                <div className="md-form form-floating mb-2 mb-md-0">
                   <input placeholder="youremail@test.com" type="email" id="email" name="email" className="form-control" onChange={handleChange} />
+                  <label htmlFor="email" className="">Email address</label>
                 </div>
               </div>
             </div>
 
             <div className="row my-4">
               <div className="">
-                <div className="md-form">
-                  <label htmlFor="pwd">Password</label>
+                <div className="md-form form-floating mb-2 mb-md-0">
                   <input placeholder="******" type="password" id="pwd" name="password" rows="2" className="form-control" onChange={handleChange}></input>
+                  <label htmlFor="pwd">Password</label>
                 </div>
               </div>
             </div>

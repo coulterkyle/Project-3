@@ -11,6 +11,7 @@ import Issues from './pages/Issues';
 import Repos from './pages/Repos';
 import Contact from './pages/Contact';
 import Users from './pages/Users';
+import About from './pages/About';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         element: <Signup />
       }, {
         path: '/about',
-        element: <Error /> //Change later...
+        element: <About /> //Change later...
       }, {
         path: '/contact',
         element: <Contact />

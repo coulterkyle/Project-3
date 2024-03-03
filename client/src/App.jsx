@@ -7,6 +7,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
+
 import Nav from './components/navigation.jsx';
 import Footer from './components/ui/footer.jsx';
 
@@ -32,9 +33,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-        <Nav />
-        <Outlet />
-        <Footer />
+      <Nav />
+      <Outlet />
+      <Footer />
     </ApolloProvider>
   );
 }
