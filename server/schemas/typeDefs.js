@@ -14,10 +14,14 @@ const typeDefs = `
     title: String
     description: String
     state: String
-    votes: Int
     voters: [User]
-    bounty: Float
-    bountyIssuers: [User]
+    bounty: [Bounty]
+  }
+
+  type Bounty {
+    _id: ID
+    bountyDollars: Float
+    bountyIssuer: User
   }
 
   type Auth {
@@ -31,6 +35,7 @@ const typeDefs = `
     users: [User]
     issues: [Issue]
     issue(issueId: ID!): Issue
+    bounty: [Bounty]
   }
 
   type Mutation {
@@ -40,6 +45,7 @@ const typeDefs = `
     removeIssue(issueId: String!): User
     addVote(issueId: ID!): Issue
     removeVote(issueId: ID!): Issue
+    addBounty(issueId: ID!, bountyDollars: Float!): Bounty
   }
 `;
 

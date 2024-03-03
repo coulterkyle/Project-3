@@ -1,4 +1,4 @@
-const { User, Issue, Vote, Bounty } = require('../models');
+const { User, Issue, Bounty } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -12,24 +12,28 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    user: async (parent, {_id}, ) => {
-        const user = await User.findById({_id}).populate('savedIssues')
+    user: async (parent, { _id },) => {
+      const user = await User.findById({ _id }).populate('savedIssues')
 
-        return user;
-      },
+      return user;
+    },
     users: async () => {
       return User.find().populate('savedIssues');
     },
     issues: async (parent, args) => {
 
-      return await Issue.find().populate('votes');
+      return await Issue.find().populate(['voters', 'bounty']);
 
     },
     issue: async (parent, { issueId }) => {
-      console.log(issueId)
-      const issue = await Issue.findById(issueId)
+      const issue = await Issue.findById(issueId).populate(['voters', 'bounty'])
 
       return issue;
+
+    },
+    bounty: async (parent, args) => {
+
+      return await Bounty.find().populate('user');
 
     },
   },
@@ -62,7 +66,7 @@ const resolvers = {
         const issue = await Issue.create(issueData);
 
         await User.findByIdAndUpdate(
-          {_id: context.user._id},
+          { _id: context.user._id },
           { $addToSet: { savedIssues: issue._id } },
         );
 
@@ -85,7 +89,7 @@ const resolvers = {
       if (context.user) {
         return await Issue.findByIdAndUpdate(
           { _id: issueId },
-          { $addToSet: { voters: context.user._id  } },
+          { $addToSet: { voters: context.user._id } },
           {
             new: true,
             runValidators: true,
@@ -98,29 +102,32 @@ const resolvers = {
       if (context.user) {
         return await Issue.findByIdAndUpdate(
           { _id: issueId },
-          { $pull: { voters: context.user._id  } },
+          { $pull: { voters: context.user._id } },
           { new: true },
         );
       }
       throw AuthenticationError;
     },
-    // addBounty: async (parent, bountyData, context) => {
-    //   console.log(bountyData)
-    //   if (context.user) {
-    //     return Issue.findOneAndUpdate(
-    //       { _id: _id },
-    //       {
-    //         $addToSet: { bounty: bountyData },
-    //       },
-    //       {
-    //         new: true,
-    //         runValidators: true,
-    //       }
-    //     );
-    //   }
-    //   throw AuthenticationError;
-    // },
-  },
+    addBounty: async (parent, { issueId, bountyDollars }, context) => {
+      if (context.user) {
+        const newBounty = await Bounty.create(
+          {
+            bountyIssuer: context.user._id,
+            bountyDollars: bountyDollars
+          },
+        )
+        await Issue.findByIdAndUpdate(
+          { _id: issueId },
+          { $addToSet: { bounty: newBounty._id } },
+          { new: true }
+        );
+
+        return newBounty;
+      }
+      throw AuthenticationError;
+    },
+
+  }
 };
 
 module.exports = resolvers;
