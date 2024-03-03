@@ -1,18 +1,17 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 
 const bountySchema = new Schema({
-    user: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-      },
-    amount: {
-        type: Number,
+  bountyDollars: {
+    type: Number,
+  },
+  bountyIssuer: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
     }
+  ]
 });
 
-const Bounty = mongoose.model('Bounty', bountySchema);
+const Bounty = model('Bounty', bountySchema);
 
 module.exports = Bounty;
