@@ -13,11 +13,6 @@ const issueSchema = new Schema({
   state: {
     type: String,
   },
-  votes: {
-    type: Number,
-    min: 0,
-    default: 0
-  },
   voters: [
     {
       type: Schema.Types.ObjectId,

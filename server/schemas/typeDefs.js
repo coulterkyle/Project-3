@@ -1,6 +1,6 @@
 const typeDefs = `
   type User {
-    _id: ID!
+    _id: ID
     firstName: String!
     lastName: String!
     email: String!
@@ -9,25 +9,15 @@ const typeDefs = `
   }
 
   type Issue {
-    _id: ID!
-    issueId: String!
-    title: String!
+    _id: ID
+    issueId: String
+    title: String
     description: String
     state: String
-    votes: [Vote]
-    bounty: [Bounty]
-  }
-
-  type Vote {
-    _id: ID!
-    issueId: String
-    user: User
-  }
-
-  type Bounty {
-    _id: ID!
-    user: User!
-    amount: Float
+    votes: Int
+    voters: [User]
+    bounty: Float
+    bountyIssuers: [User]
   }
 
   type Auth {
@@ -36,18 +26,20 @@ const typeDefs = `
   }
 
   type Query {
+    me: User
     user: User
+    users: [User]
     issues: [Issue]
+    issue(issueId: ID!): Issue
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, githubUsername: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    updateUser(firstName: String, lastName: String, githubUsername: String!, email: String): User
-    saveIssue(issueId: String!, title: String!, description: String, state: String): User
+    saveIssue(issueId: String!, title: String!, description: String!, state: String!): Issue
     removeIssue(issueId: String!): User
-    addVote(issueId: String!): Issue
-    addBounty(user: ID!, amount: Float): Issue
+    addVote(issueId: ID!): Issue
+    removeVote(issueId: ID!): Issue
   }
 `;
 
