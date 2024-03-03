@@ -19,17 +19,12 @@ const issueSchema = new Schema({
       ref: 'User',
     },
   ],
-  bounty: {
-    type: Number,
-    min: 0,
-    default: 0
-  },
-  bountyIssuers: [
+  bounty: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'User',
-    },
-  ],
+      ref: 'Bounty'
+    }
+  ]
 });
 
 const Issue = model('Issue', issueSchema);
