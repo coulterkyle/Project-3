@@ -25,6 +25,14 @@ query queryUser($userId: ID!) {
     githubUsername
     savedIssues {
       _id
+      issueId
+      title
+      description
+      state
+      bounty
+      voters {
+        _id
+      }
     }
   }
 }
