@@ -15,10 +15,13 @@
     "@apollo/server": "^4.7.2",
     "@stripe/stripe-js": "^1.29.0",
     "bcrypt": "^4.0.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "graphql": "^16.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^7.0.2",
+    "node-fetch": "^3.3.2",
     "react-stripe": "^0.1.0",
     "react-stripe-js": "^1.1.5",
     "stripe": "^8.222.0"
