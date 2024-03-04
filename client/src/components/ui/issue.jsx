@@ -5,9 +5,9 @@ export default function issue({ issues }) {
 const setFormValues = (event) => {
     /* Sets form values on modal to the current clicked on issue */
     const bountyValues = document.getElementById(event.currentTarget.id)
-    document.getElementById('bountyAmount').value = 10
-    document.getElementById('bountyId').value = bountyValues.id
-    document.getElementById('bountyName').value = bountyValues.dataset.title
+    document.getElementById('amount').value = 10
+    document.getElementById('item').value = bountyValues.id
+    document.getElementById('name').value = bountyValues.dataset.title
 }
 
     return (

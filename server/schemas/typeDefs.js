@@ -29,6 +29,10 @@ const typeDefs = `
     user: User
   }
 
+  type Checkout {
+    session: ID
+  }
+
   type Query {
     me: User
     user: User
@@ -37,7 +41,6 @@ const typeDefs = `
     issue(issueId: ID!): Issue
     bounties: [Bounty]
     bounty(issueId: ID!): Bounty
-
   }
 
   type Mutation {
@@ -48,6 +51,7 @@ const typeDefs = `
     addVote(issueId: ID!): Issue
     removeVote(issueId: ID!): Issue
     addBounty(issueId: ID!, bountyDollars: Float!): Bounty
+    checkout(itemId: String!, itemName: String!, itemAmount: Float!): Checkout
   }
 `;
 

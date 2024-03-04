@@ -11,6 +11,14 @@ export const LOGIN = gql`
   }
 `;
 
+export const stripeCHECKOUT = gql`
+  mutation checkout($itemId: String!, $itemName: String!, $itemAmount: Float!) {
+    checkout(itemId: $itemId, itemName: $itemName, itemAmount: $itemAmount) {
+      session
+    }
+  }
+`;
+
 export const ADD_USER = gql`
 mutation addUser(
   $firstName: String!, 
