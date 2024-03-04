@@ -1,12 +1,47 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 
 function Signup(props) {
+  const [rerender, setRerender] = useState(false);
+
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
+
+  //oauth
+  const CLIENT_ID = '6073f6de696178eb4484'
+
+  useEffect(() => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const codeParam = urlParams.get('code');
+    console.log(codeParam)
+
+    if(codeParam && (localStorage.getItem('accessToken') === null)) {
+      async function getAccessToken() {
+        await fetch('http://localhost:3000/getAccessToken?code=' + codeParam, {
+          method: 'GET'
+        }).then((response) => {
+          return response.json();
+        }).then((data) => {
+          console.log(data);
+          if(data.access_token){
+            setRerender(!rerender);
+            localStorage.setItem('accessToken', data.access_token);
+          }
+        })
+      }
+      getAccessToken();
+    }
+
+  }, [])
+
+
+  function loginWithGithub() {
+    window.location.assign("https://github.com/login/oauth/authorize?client_id=" + CLIENT_ID);
+  }
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -14,6 +49,7 @@ function Signup(props) {
       variables: {
         email: formState.email,
         password: formState.password,
+        githubUsername: formState.githubUsername,
         firstName: formState.firstName,
         lastName: formState.lastName,
       },
@@ -31,56 +67,107 @@ function Signup(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
+    <section className="vh-100 bg-image">
+      <div className="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div className="container h-100">
+          <div className="row d-flex justify-content-center align-items-center">
+            <div className="col-12 col-md-9 col-lg-7">
+              <div className="card">
+                <div className="card-body p-5">
+                  <h1 className="text-uppercase text-success text-center mb-5">Create an account</h1>
+                  <div className="d-flex justify-content-center">
 
-      <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
-          <input
-            placeholder="First"
-            name="firstName"
-            type="firstName"
-            id="firstName"
-            onChange={handleChange}
-          />
+                    <button onClick={loginWithGithub}>Login with Github</button>
+
+                  </div>
+                  <form className="form signup-form" onSubmit={handleFormSubmit}>
+                    <div className="form-outline mb-4">
+                      <label htmlFor="firstName" className="form-label"></label>
+                      <input
+                        htmlFor='firstname'
+                        className="form-control form-control-lg"
+                        placeholder="First Name"
+                        name="firstName"
+                        type="text"
+                        id="firstName"
+                        onChange={handleChange}
+                        required />
+                      <div className="valid-feedback">
+                        Looks good!
+                      </div>
+                    </div>
+                    <div className="form-outline mb-4">
+                      <label htmlFor="lastName" className="form-label"></label>
+                      <input
+                        className="form-control form-control-lg"
+                        placeholder="Last Name"
+                        name="lastName"
+                        type="text"
+                        id="lastName"
+                        onChange={handleChange}
+                        required />
+                      <div className="valid-feedback">
+                        Looks good!
+                      </div>
+                    </div>
+                    <div className="form-outline mb-4">
+                      <label htmlFor="githubUsername" className="form-label"></label>
+                      <input
+                        className="form-control form-control-lg"
+                        placeholder="Github Username"
+                        name="githubUsername"
+                        type="text"
+                        id="githubUsername"
+                        onChange={handleChange}
+                        required />
+                      <div className="invalid-feedback">
+                        Please input your Github username.
+                      </div>
+                    </div>
+                    <div className="form-outline mb-4">
+                      <label htmlFor="email" className="form-label"></label>
+                      <input
+                        className="form-control form-control-lg"
+                        placeholder="E-mail"
+                        name="email"
+                        type="text"
+                        id="email"
+                        onChange={handleChange}
+                        required />
+                      <div className="invalid-feedback">
+                        Please enter a valid e-mail address.
+                      </div>
+                    </div>
+                    <div className="form-outline mb-4">
+                      <label htmlFor="password" className="form-label"></label>
+                      <input
+                        className="form-control form-control-lg"
+                        placeholder="Password"
+                        name="password"
+                        type="password"
+                        id="password"
+                        onChange={handleChange}
+                        required />
+                      <div className="invalid-feedback">
+                        Please input your Github username.
+                      </div>
+                    </div>
+
+                    <div className="d-flex justify-content-center">
+                      <button className="btn btn-success" type="submit">Submit</button>
+                    </div>
+
+                    <p className="text-center text-muted mt-5 mb-0">Have already an account? <Link to="/login">Login Here</Link></p>
+
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
-          <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
+      </div>
+    </section>
   );
 }
 

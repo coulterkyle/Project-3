@@ -44,7 +44,7 @@ const Contact = () => {
                         </form>
 
                         <div className="text-center text-md-left mt-3">
-                            <a className="btn btn-success" onclick="document.getElementById('contact-form').submit();">Send</a>
+                            <a className="btn btn-success">Send</a>
                         </div>
                         <div className="status"></div>
                     </div>

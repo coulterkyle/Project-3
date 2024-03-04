@@ -1,18 +1,8 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
-
-const Vote = require('./Vote');
-const Bounty = require('./Bounty');
+const { Schema, model } = require('mongoose');
 
 const issueSchema = new Schema({
-  userId: {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-  },
   issueId: {
     type: String,
-    required: true,
   },
   title: {
     type: String,
@@ -23,11 +13,22 @@ const issueSchema = new Schema({
   state: {
     type: String,
   },
-  votes: [Vote.schema],
-  bounty: [Bounty.schema],
+  voters: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
+  ],
+  bounty: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Bounty'
+    }
+  ]
 });
 
-const Issue = mongoose.model('Issue', issueSchema);
+const Issue = model('Issue', issueSchema);
 
 module.exports = Issue;
+
 
