@@ -1,5 +1,6 @@
 import background from '../assets/backgroundImg3.png'
 import logo from '../assets/BugDebugger.png'
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -15,7 +16,8 @@ const Home = () => {
               <h1 class="display-5 fw-bold  text-success lh-1 mb-3">ARE YOU READY TO HUNT?</h1>
               <p class="lead">Some quorky stuff about debugging other developers' apps.</p>
               <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <button type="button" class="btn btn-success btn-lg px-4 me-md-2">Join the Hunt</button>
+                {/* sending to signup for now - can change or add different logic */}
+                <Link className="btn btn-success btn-lg px-4 me-md-2" to="/signup">Join the Hunt</Link>
               </div>
             </div>
           </div>
@@ -82,13 +84,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
     </div>
   );
 };
