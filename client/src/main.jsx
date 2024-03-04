@@ -7,12 +7,13 @@ import Error from './pages/Error';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import About from './pages/About';
+import BountyBoard from './pages/BountyBoard';
 import Issues from './pages/Issues';
 import Repos from './pages/Repos';
 import Contact from './pages/Contact';
 import Users from './pages/Users';
-import About from './pages/About';
-import BountyBoard from './pages/BountyBoard';
+import Profile from './pages/Profile';
 
 const router = createBrowserRouter([
   {
@@ -39,8 +40,15 @@ const router = createBrowserRouter([
         path: '/contact',
         element: <Contact />
       }, {
+        path: '/profile',
+        element: <Profile />
+      }, {
         path: '/project',
         element: <Users />
+      }, {
+      }, {
+        path: '/profile',
+        element: <Profile />
       }, {
         path: '/project/:userId',
         element: <Repos /> //Change later...
