@@ -13,6 +13,7 @@ import Issues from './pages/Issues';
 import Repos from './pages/Repos';
 import Contact from './pages/Contact';
 import Users from './pages/Users';
+import Success from './pages/Success';
 import Profile from './pages/Profile';
 
 const router = createBrowserRouter([
@@ -40,15 +41,14 @@ const router = createBrowserRouter([
         path: '/contact',
         element: <Contact />
       }, {
+        path: '/success/*',
+        element: <Success />
+      }, {
         path: '/profile',
         element: <Profile />
       }, {
         path: '/project',
         element: <Users />
-      }, {
-      }, {
-        path: '/profile',
-        element: <Profile />
       }, {
         path: '/project/:userId',
         element: <Repos /> //Change later...
