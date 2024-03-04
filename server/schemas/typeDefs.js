@@ -14,14 +14,8 @@ const typeDefs = `
     title: String
     description: String
     state: String
+    bounty: Float
     voters: [User]
-    bounty: [Bounty]
-  }
-
-  type Bounty {
-    _id: ID
-    bountyDollars: Float
-    bountyIssuer: User
   }
 
   type Auth {
@@ -35,19 +29,16 @@ const typeDefs = `
     users: [User]
     issues: [Issue]
     issue(issueId: ID!): Issue
-    bounties: [Bounty]
-    bounty(issueId: ID!): Bounty
-
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, githubUsername: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    saveIssue(issueId: String!, title: String!, description: String!, state: String!): Issue
+    saveIssue(issueId: String!, title: String!, description: String!, state: String!, bounty: Float): Issue
     removeIssue(issueId: String!): User
     addVote(issueId: ID!): Issue
     removeVote(issueId: ID!): Issue
-    addBounty(issueId: ID!, bountyDollars: Float!): Bounty
+    addBounty(issueId: ID!, bountyDollars: Float!): Issue
   }
 `;
 

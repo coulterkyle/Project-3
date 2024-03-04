@@ -1,4 +1,4 @@
-const { User, Issue, Bounty } = require('../models');
+const { User, Issue } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -26,22 +26,22 @@ const resolvers = {
 
     },
     issue: async (parent, { issueId }) => {
-      const issue = await Issue.findById(issueId).populate(['voters', 'bounty'])
+      const issue = await Issue.findById(issueId).populate(['bounty'])
 
       return issue;
 
     },
-    bounties: async (parent, args) => {
+    // bounties: async (parent, args) => {
 
-      return await Bounty.find().populate('bountyIssuer');
+    //   return await Bounty.find().populate('bountyIssuer');
 
-    },
-    bounty: async (parent, { bountyId }) => {
-      const issue = await Bounty.findById(issueId).populate('bountIssuer')
+    // },
+    // bounty: async (parent, { bountyId }) => {
+    //   const issue = await Bounty.findById(issueId).populate('bountyIssuer')
 
-      return issue;
+    //   return issue;
 
-    },
+    // },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -115,20 +115,16 @@ const resolvers = {
       throw AuthenticationError;
     },
     addBounty: async (parent, { issueId, bountyDollars }, context) => {
+      console.log(bountyDollars)
+      // const bountyDollars = Math.abs(bounty)
       if (context.user) {
-        const newBounty = await Bounty.create(
-          {
-            bountyIssuer: context.user._id,
-            bountyDollars: bountyDollars
-          },
-        )
-        await Issue.findByIdAndUpdate(
+        const issue = await Issue.findByIdAndUpdate(
           { _id: issueId },
-          { $addToSet: { bounty: newBounty._id } },
+          { $inc: { bounty: bountyDollars } },
           { new: true }
         );
 
-        return newBounty;
+        return issue;
       }
       throw AuthenticationError;
     },
