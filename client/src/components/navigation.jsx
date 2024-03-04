@@ -24,7 +24,10 @@ function Nav() {
             </Link>,
             <Link key={5} className="nav-link" to="/bountyboard">
               BountyBoard
-            </Link>
+            </Link>,
+            <Link key={6} className="nav-link" to="/profile">
+              Profile
+            </Link>,
           ]}
         />
       );
