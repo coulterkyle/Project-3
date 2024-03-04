@@ -14,6 +14,7 @@ import Repos from './pages/Repos';
 import Contact from './pages/Contact';
 import Users from './pages/Users';
 import Success from './pages/Success';
+import Cancel from './pages/Cancel';
 import Profile from './pages/Profile';
 
 const router = createBrowserRouter([
@@ -43,6 +44,9 @@ const router = createBrowserRouter([
       }, {
         path: '/success/*',
         element: <Success />
+      }, {
+        path: '/cancel/*',
+        element: <Cancel />
       }, {
         path: '/profile',
         element: <Profile />
