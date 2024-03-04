@@ -13,18 +13,15 @@ const issueSchema = new Schema({
   state: {
     type: String,
   },
+  bounty: {
+    type: Number,
+  },
   voters: [
     {
       type: Schema.Types.ObjectId,
       ref: 'User',
     },
   ],
-  bounty: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Bounty'
-    }
-  ]
 });
 
 const Issue = model('Issue', issueSchema);
