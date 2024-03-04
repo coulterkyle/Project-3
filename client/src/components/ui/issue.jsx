@@ -3,11 +3,11 @@ import Modal from './modal';
 export default function issue({ issues }) {
 
 const setFormValues = (event) => {
+    /* Sets form values on modal to the current clicked on issue */
     const bountyValues = document.getElementById(event.currentTarget.id)
-    console.log(bountyValues)
     document.getElementById('bountyAmount').value = 10
-    document.getElementById('bountyId').text = bountyValues.id
-    document.getElementById('bountyName').text = bountyValues.whatever
+    document.getElementById('bountyId').value = bountyValues.id
+    document.getElementById('bountyName').value = bountyValues.dataset.title
 }
 
     return (
@@ -27,8 +27,8 @@ const setFormValues = (event) => {
                             type="button"
                             data-bs-toggle="modal"
                             data-bs-target="#exampleModal"
-                            data-bs-whatever={data.title}
-                            data-bs-body={data.body}
+                            data-title={data.title}
+                            data-body={data.body}
                             onClick={setFormValues}   
                         >
                                 {data.bounty}
