@@ -12,10 +12,10 @@ const Home = () => {
             <div className="col-10 col-sm-8 col-lg-6">
               <img src={logo} className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy" />
             </div>
-            <div class="col-lg-6">
-              <h1 class="display-5 fw-bold  text-success lh-1 mb-3">ARE YOU READY TO HUNT?</h1>
-              <p class="lead">Some quorky stuff about debugging other developers' apps.</p>
-              <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <div className="col-lg-6">
+              <h1 className="display-5 fw-bold  text-success lh-1 mb-3">ARE YOU READY TO HUNT?</h1>
+              <p className="lead">Some quorky stuff about debugging other developers' apps.</p>
+              <div className="d-grid gap-2 d-md-flex justify-content-md-start">
                 {/* sending to signup for now - can change or add different logic */}
                 <Link className="btn btn-success btn-lg px-4 me-md-2" to="/signup">Join the Hunt</Link>
 
