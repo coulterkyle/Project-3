@@ -7,6 +7,16 @@ const { authMiddleware } = require('./utils/auth');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
+//oauth
+const cors = require('cors');
+const fetch = (...args) =>
+  import('node-fetch').then(({default: fetch}) => fetch(...args));
+const bodyParser = require('body-parser');
+
+const CLIENT_ID = '6073f6de696178eb4484';
+const CLIENT_SECRET = '3464eed34ead7e65d4d442c8c2b94ad5aa5d9d11'
+
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
@@ -20,6 +30,52 @@ const startApolloServer = async () => {
 
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
+
+  //oauth
+  app.use(cors());
+  app.use(bodyParser.json());
+
+  app.get('/getAccessToken', async function (req, res) {
+
+    console.log(req.query.code);
+
+    const params = '?client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET + '&code=' + req.query.code;
+    console.log(params)
+
+    await fetch(`https://github.com/login/oauth/access_token${params}`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then((response) => {
+      return response.json();
+    }).then ((data) => {
+      console.log(data)
+      res.json(data);
+    })
+  });
+
+  //getUserData
+  //access token is going to be passed in as an authorization header
+
+  app.get('/getUserData', async function (req, res) {
+    req.get('Authorization'); //Bearer ACCESSTOKEN
+    await fetch('https://api.github.com/user', {
+      method: 'GET',
+      headers: {
+        'Authorization' : req.get('Authorization') //Bearer ACCESSTOKEN
+      }
+    }).then((response) => {
+      return response.json();
+    }).then((data) => {
+      console.log(data)
+      res.json(data);
+    });
+    
+  })
+
+
+  
 
   // Serve up static assets
   app.use('/images', express.static(path.join(__dirname, '../client/images')));
