@@ -1,5 +1,6 @@
 const { User, Issue } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
+const stripeTK = require('stripe')('sk_test_51OpCgrBHDzDLC8eDir1qkE4VG8QC4pT9O71tXPuLPJuvp0PYbYeK6hd1CDZo1ajqjEUVzlW8p6sKHidPxuCEtqnY00Ge6ANeBY');
 
 const resolvers = {
   Query: {
@@ -128,6 +129,30 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+    checkout: async (parent, { itemId, itemName, itemAmount }) => {
+      const rootURL = 'http://localhost:3000'
+      const session = await stripeTK.checkout.sessions.create
+        ({
+        payment_method_types: ['card'],
+        line_items: [
+          {
+            quantity: 1,
+            price_data: {
+              currency: 'usd',
+              unit_amount: itemAmount,
+              product_data: {
+                name: itemId,
+                description: itemName
+              }
+            }
+          }],
+        mode: 'payment',
+        success_url: `${rootURL}/success/{CHECKOUT_SESSION_ID}`,
+        cancel_url: `${rootURL}/cancel`,
+      });
+
+      return { session: session.id }
+    }
 
   }
 };

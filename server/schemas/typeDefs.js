@@ -23,6 +23,10 @@ const typeDefs = `
     user: User
   }
 
+  type Checkout {
+    session: ID
+  }
+
   type Query {
     me: User
     user(userId: ID!): User
@@ -38,6 +42,7 @@ const typeDefs = `
     removeIssue(issueId: String!): User
     addVote(issueId: ID!): Issue
     removeVote(issueId: ID!): Issue
+    checkout(itemId: String!, itemName: String!, itemAmount: Float!): Checkout
     addBounty(issueId: ID!, bountyDollars: Float!): Issue
   }
 `;
