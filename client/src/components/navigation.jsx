@@ -44,7 +44,10 @@ function Nav() {
             </Link>,
             <Link key={4} className="nav-link" to="/contact">
               Contact
-            </Link>
+            </Link>,
+            <Link key={5} className="nav-link" to="/bountyboard">
+            Bounty Board
+          </Link>
           ]}
         />
 
