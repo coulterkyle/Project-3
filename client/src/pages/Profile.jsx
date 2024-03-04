@@ -1,10 +1,7 @@
-// import IssueList from '../components/issueList';
 import { useParams, Navigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-// import { useState } from "react";
 import { QUERY_ME } from '../utils/queries';
-// import ReactDOM from "react-dom/client";
-// import Auth from '../utils/auth';
+
 
 const Profile = () => {
 
@@ -15,41 +12,42 @@ const Profile = () => {
     });
 
     const user = data?.me || data?.user || {};
-    // navigate to personal profile page if username is yours
-    // if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    //     return <Navigate to="/profile" />;
-    // }
-
-    // if (loading) {
-    //     return <div>Loading...</div>;
-    // }
-
-    // if (!user?.username) {
-    //     return (
-    //         <h4>
-    //             You need to be logged in to see this. Use the navigation links above to
-    //             sign up or log in!
-    //         </h4>
-    //     );
-    // }
 
     return (
         <div className="container">
             <h1>{`Welcome ${user.firstName} ${user.lastName}`}</h1>
-            <div class="card text-center">
-                <div class="card-header">
-                    <ul class="nav nav-tabs card-header-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="true" href="#">Bounties Offered</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Bounties Claimed</a>
-                        </li>
-                    </ul>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" fdprocessedid="zc7rwf">
+                            Bounties Offered
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>My Bounties offered</li>
+                                <li>Will have to be listed here</li>
+                            </ul>
+                            {/* <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. */}
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" fdprocessedid="tbazrz">
+                            Bounties Claimed
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>My Bounties claimed</li>
+                                <li>Will have to be listed here</li>
+                            </ul>
+                            {/* <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. */}
+                        </div>
+                    </div>
                 </div>
             </div>
 

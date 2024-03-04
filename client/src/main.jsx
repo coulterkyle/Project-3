@@ -13,6 +13,8 @@ import Contact from './pages/Contact';
 import Users from './pages/Users';
 import About from './pages/About';
 import Profile from './pages/Profile';
+import MyClaims from './pages/MyClaims';
+import MyBounties from './pages/MyBounties';
 import BountyBoard from './pages/BountyBoard';
 
 const router = createBrowserRouter([
@@ -36,6 +38,12 @@ const router = createBrowserRouter([
       }, {
         path: '/bountyboard',
         element: <BountyBoard />
+      }, {
+        path: '/myclaims',
+        element: <MyClaims />
+      }, {
+        path: '/mybounties',
+        element: <MyBounties />
       }, {
         path: '/contact',
         element: <Contact />
