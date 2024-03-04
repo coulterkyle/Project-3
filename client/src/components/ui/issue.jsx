@@ -26,7 +26,7 @@ const setFormValues = (event) => {
                             id={data.id}
                             type="button"
                             data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
+                            data-bs-target="#modal"
                             data-title={data.title}
                             data-body={data.body}
                             onClick={setFormValues}   
