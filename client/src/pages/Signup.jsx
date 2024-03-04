@@ -74,7 +74,7 @@ function Signup(props) {
             <div className="col-12 col-md-9 col-lg-7">
               <div className="card">
                 <div className="card-body p-5">
-                  <h1 className="text-uppercase text-center mb-5">Create an account</h1>
+                  <h1 className="text-uppercase text-success text-center mb-5">Create an account</h1>
                   <div className="d-flex justify-content-center">
 
                     <button onClick={loginWithGithub}>Login with Github</button>
@@ -154,7 +154,7 @@ function Signup(props) {
                     </div>
 
                     <div className="d-flex justify-content-center">
-                      <button className="btn btn-primary" type="submit">Submit</button>
+                      <button className="btn btn-success" type="submit">Submit</button>
                     </div>
 
                     <p className="text-center text-muted mt-5 mb-0">Have already an account? <Link to="/login">Login Here</Link></p>

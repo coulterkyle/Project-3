@@ -37,7 +37,7 @@ function Login(props) {
             <div className="col-12 col-md-9 col-lg-7">
               <div className="card">
                 <div className="card-body p-5">
-                  <h1 className="text-uppercase text-center mb-5">Login to your account</h1>
+                  <h1 className="text-uppercase text-center text-success mb-5">Login to your account</h1>
                   <form className="form signup-form" onSubmit={handleFormSubmit}>
                     <div className="form-outline mb-4">
                     <label htmlFor="email" className="form-label"></label>
@@ -69,7 +69,7 @@ function Login(props) {
                     </div>
 
                     <div className="d-flex justify-content-center">
-                    <button className="btn btn-primary" type="submit">Login</button>
+                    <button className="btn btn-success" type="submit">Login</button>
 
                     </div>
 

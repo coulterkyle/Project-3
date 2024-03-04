@@ -26,7 +26,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">New Bounty </h5>
-          <button type="button" class="close btn-success" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close  btn-success" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -38,14 +38,10 @@
               <!-- Not sure if this is the correct syntax??? -->
               <input data-bs-id=${data.id} data-bs-body=${data.body} hidden>
             </div>
-            <!-- <div class="form-group">
-              <label for="message-text" class="col-form-label">Message:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div> -->
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark" data-bs-dismiss="modal" >Close</button>
           <button type="button" class="btn btn-success">Add Bounty</button>
         </div>
       </div>
