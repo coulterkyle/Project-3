@@ -30,48 +30,60 @@ function Login(props) {
   };
 
   return (
-    <div className="container mb-4">
-      <Link to="/signup">← Go to Signup</Link>
+    <section className="vh-100 bg-image">
+      <div className="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div className="container h-100">
+          <div className="row d-flex justify-content-center align-items-center">
+            <div className="col-12 col-md-9 col-lg-7">
+              <div className="card">
+                <div className="card-body p-5">
+                  <h1 className="text-uppercase text-center mb-5">Login to your account</h1>
+                  <form className="form signup-form" onSubmit={handleFormSubmit}>
+                    <div className="form-outline mb-4">
+                    <label htmlFor="email" className="form-label"></label>
+                      <input
+                        className="form-control form-control-lg"
+                        placeholder="E-mail"
+                        name="email"
+                        type="text"
+                        id="email"
+                        onChange={handleChange}
+                        required />
+                      <div className="invalid-feedback">
+                        Please enter a valid e-mail address.
+                      </div>
+                    </div>
+                    <div className="form-outline mb-4">
+                    <label htmlFor="password" className="form-label"></label>
+                      <input
+                        className="form-control form-control-lg"
+                        placeholder="Password"
+                        name="password"
+                        type="password"
+                        id="password"
+                        onChange={handleChange}
+                        required />
+                      <div className="invalid-feedback">
+                        Please input your Github username.
+                      </div>
+                    </div>
 
-      <h2 className='text-success h1-responsive font-weight-bold text-center my-4'>Login</h2>
+                    <div className="d-flex justify-content-center">
+                    <button className="btn btn-primary" type="submit">Login</button>
 
-      <div className="row">
-        <div className=" mb-md-0 mb-5">
-          <form onSubmit={handleFormSubmit} id="login-form" name="login-form" action="tbd" method="POST">
+                    </div>
 
-            <div className="row my-2">
-              <div className="">
-                <div className="md-form form-floating mb-2 mb-md-0">
-                  <input placeholder="youremail@test.com" type="email" id="email" name="email" className="form-control" onChange={handleChange} />
-                  <label htmlFor="email" className="">Email address</label>
+                    <p className="text-center text-muted mt-5 mb-0">Don't have an account? <Link to="/signup">Register Here</Link></p>
+
+                  </form>
+
                 </div>
               </div>
             </div>
-
-            <div className="row my-4">
-              <div className="">
-                <div className="md-form form-floating mb-2 mb-md-0">
-                  <input placeholder="******" type="password" id="pwd" name="password" rows="2" className="form-control" onChange={handleChange}></input>
-                  <label htmlFor="pwd">Password</label>
-                </div>
-              </div>
-            </div>
-
-            {error ? (
-              <div>
-                <p className="error-text">The provided credentials are incorrect</p>
-              </div>
-            ) : null}
-
-            <div className="text-center text-md-left mt-3">
-              <a className="btn btn-success" >Submit</a>
-              {/* onClick="document.getElementById('login-form').submit();" */}
-            </div>
-            <div className="status"></div>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
