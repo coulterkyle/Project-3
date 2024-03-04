@@ -24,10 +24,14 @@ export default function Modal() {
             </button>
             </div>
             <div className="modal-body">
-                <div className="form-group">
-                <label htmlFor="bountyAmount" className="col-form-label text-success">Bounty Amount:</label>
+                <div className="form-floating">
                 <input type="number" min="1" step="1" max="250" className="form-control" id="bountyAmount" />
+                <label htmlFor="bountyAmount" className="col-form-label text-success">Bounty Amount:</label>
                 </div>
+            </div>
+            <div id="hiddenValues">
+              <input type="text" id="bountyId" />
+              <input type="text" id="bountyName" />
             </div>
             <div className="modal-footer">
             <button type="button" className="btn btn-dark" data-bs-dismiss="modal">Close</button>
