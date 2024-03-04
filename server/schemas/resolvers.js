@@ -12,8 +12,8 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    user: async (parent, { _id },) => {
-      const user = await User.findById({ _id }).populate('savedIssues')
+    user: async (parent, { userId },) => {
+      const user = await User.findById(userId).populate(['savedIssues'])
 
       return user;
     },
