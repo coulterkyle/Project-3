@@ -27,6 +27,10 @@ const typeDefs = `
     session: ID
   }
 
+  type Decoder {
+    total: String
+  }
+
   type Query {
     me: User
     user(userId: ID!): User
@@ -44,6 +48,7 @@ const typeDefs = `
     removeVote(issueId: ID!): Issue
     checkout(itemId: String!, itemName: String!, itemAmount: Float!): Checkout
     addBounty(issueId: ID!, bountyDollars: Float!): Issue
+    decodeStripe(sessionId: String!): Decoder
   }
 `;
 
