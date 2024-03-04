@@ -6,13 +6,12 @@ const Repos = () => {
   const { userId } = useParams()
 
     return (
-      <div className="container">
+      <div className="container my-4">
         <ol className="breadcrumb bg-info">
           <li className="breadcrumb-item"><Link to="/project">users</Link></li>
           <li className="breadcrumb-item active">{userId}</li>
         </ol>
         <RepoList />
-      <br />
       </div>
       )
   };
