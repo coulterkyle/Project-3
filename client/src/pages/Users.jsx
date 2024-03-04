@@ -5,7 +5,7 @@ import { QUERY_USERS } from '../utils/queries';
 const listUsers = () => {
   const { loading, data } = useQuery(QUERY_USERS);
 
-  const userData = data?.user || []
+  const userData = data?.users || []
   console.log("Users", userData)
 
   if (loading) return <div className="container">Loading, please wait...</div>;
