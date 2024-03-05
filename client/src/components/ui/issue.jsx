@@ -1,4 +1,5 @@
 import Modal from './modal';
+import { Link } from "react-router-dom";
 
 export default function issue({ issues }) {
 
@@ -29,12 +30,17 @@ const setFormValues = (event) => {
                             data-bs-target="#modal"
                             data-title={data.title}
                             data-body={data.body}
-                            onClick={setFormValues}   
+                            onClick={setFormValues}
+                            mailto="mailto:bugsquasher@example.com"   
                         >
                                 {data.bounty}
                             <i className="fa-solid fa-hand-holding-dollar"></i>
                         </button>
-                        <a href="#" className="mx-2 btn btn-dark" title="Claim Bounty"><i className="fa-solid fa-virus-slash"></i></a>
+                        <a 
+                        className="mx-2 btn btn-dark" 
+                        title="Claim Bounty"
+                        href='mailto:yourmail@domain.com'>
+                            <i className="fa-solid fa-virus-slash"></i></a>
                     </li>
                 )}
             </ul>
