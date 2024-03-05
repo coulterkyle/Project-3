@@ -12,8 +12,7 @@ query queryMe {
       _id
     }
   }
-}
-`;
+}`;
 
 export const QUERY_USER = gql`
 query queryUser($userId: ID!) {
@@ -35,8 +34,7 @@ query queryUser($userId: ID!) {
       }
     }
   }
-}
-`;
+}`;
 
 export const QUERY_USERS = gql`
 query queryUsers {
@@ -50,8 +48,7 @@ query queryUsers {
       _id
     }
   }
-}
-`;
+}`;
 
 export const QUERY_GITHUBUSER = gql`
 query GithubUsername($githubUsername: String!) {
@@ -62,5 +59,12 @@ query GithubUsername($githubUsername: String!) {
     lastName
     email
   }
-}
-`
+}`;
+
+export const QUERY_BOUNTIES = gql`
+query getBountyValues {
+  issues {
+    bounty
+    issueId
+  }
+}`;
