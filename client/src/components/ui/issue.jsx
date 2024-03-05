@@ -1,5 +1,4 @@
 import Modal from './modal';
-// import { useState } from 'react';
 import ClaimBtn from '../claimBtn';
 
 
@@ -12,14 +11,6 @@ export default function issue({ issues }) {
         document.getElementById('item').value = bountyValues.id
         document.getElementById('name').value = bountyValues.dataset.title
     }
-
-    // const [className, setClassName] = React.useState("foo");
-
-    // const [isActive, setState] = useState(false);
-
-    // const toggleClass = () => {
-    //     setState(!isActive);
-    // };
 
     return (
         <div className="container" id="gh-repo-issues">
