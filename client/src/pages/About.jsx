@@ -12,11 +12,11 @@ const About = () => {
           </div>
 
           <div className="col-lg-7 p-3 p-lg-5 mx-auto pt-lg-3">
-            <h1 className="display-4 fw-bold lh-1 text-body-success text-success">About BugBounty</h1>
-            <p className="lead">With an estimated 70% of apps failing due to regular upkeep, BugBounty is here to get you help.
+            <h1 className="display-4 fw-bold lh-1 text-body-success text-success">About GitFix</h1>
+            <p className="lead">With an estimated 70% of apps failing due to regular upkeep, GitFix is here to get you help.
               <br></br>
               <br></br>
-              BugBounty allows you to place bounties on existing GitHub issues in your Repo.  Other developers can claim the issue, help fix the bug, and claim their bounty.</p>
+              GitFix  allows you to place bounties on existing GitHub issues in your Repo.  Other developers can claim the issue, help fix the bug, and claim their bounty.</p>
           </div>
         </div>
       </div>

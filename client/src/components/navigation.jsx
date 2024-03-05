@@ -62,8 +62,9 @@ function Nav() {
     <header className="mb-4">
       <nav className="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">GitPrize</a>
-          <a className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <a className="navbar-brand" href="#">G<span className="text-success">it</span>Fi<span className="text-success">x</span></a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
             <span className="navbar-toggler-icon"></span>
           </a>
 
