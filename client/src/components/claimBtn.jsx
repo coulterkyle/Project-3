@@ -7,11 +7,11 @@ function ClaimBtn() {
         setBtnState(btnState => !btnState);
     }
 
-    let toggleClassCheck = btnState ? ' disabled' : '';
+    let toggleClassCheck = btnState ? ' disabled text-danger' : ' btn-dark';
 
     return (
         <a
-            className={`mx-2 btn btn-dark${toggleClassCheck}`}
+            className={`mx-2 btn ${toggleClassCheck}`}
             id="splatBtn"
             onClick={handleClick}
             title="Claim Bounty"
