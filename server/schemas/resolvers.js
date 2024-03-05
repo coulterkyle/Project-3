@@ -152,8 +152,11 @@ const resolvers = {
       });
 
       return { session: session.id }
-    }
-
+    },
+    decodeStripe: async (parent, { sessionId }) => {
+      const session = await stripeTK.checkout.sessions.retrieve(sessionId);
+      return { total: session.amount_total }
+    },
   }
 };
 

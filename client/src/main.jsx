@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         path: '/contact',
         element: <Contact />
       }, {
-        path: '/success/*',
+        path: '/success/:sessionId',
         element: <Success />
       }, {
         path: '/cancel/*',

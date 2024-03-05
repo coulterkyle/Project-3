@@ -1,5 +1,3 @@
-// import { useState } from 'react';
-import { useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { stripeCHECKOUT } from '../../utils/mutations';
 import { loadStripe } from '@stripe/stripe-js';
@@ -11,11 +9,11 @@ export default function Modal() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const formData = event.target
+    const formData = event.target;
 
-    let itemId = formData.item.value
-    let itemName = formData.name.value
-    let itemAmount = (formData.amount.value * 100)
+    let itemId = formData.item.value; 
+    let itemName = formData.name.value; 
+    let itemAmount = (formData.amount.value * 100);
     
     try {
       const mutationRes = await sCheckout({
@@ -26,25 +24,25 @@ export default function Modal() {
         }
       })
 
-      console.log('mutation', mutationRes)
-      
+      localStorage.setItem("StripeId", itemId);
+      localStorage.setItem("StripeName", itemName);
+
       stripePromise.then((res) => {
         res.redirectToCheckout({ sessionId: mutationRes.data.checkout.session });
       });
 
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
-
   }
 
     return (
-        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="modal" tabIndex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">
         <div className="modal-content">
           <form id="setBounty" onSubmit={handleFormSubmit}>
             <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalLabel">New Bounty </h5>
+            <h5 className="modal-title" id="modalLabel">New Bounty </h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true"></span>
             </button>
