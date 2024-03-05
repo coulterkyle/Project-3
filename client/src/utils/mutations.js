@@ -32,13 +32,11 @@ export const ADD_USER = gql`
 mutation addUser(
   $firstName: String!, 
   $lastName: String!, 
-  $githubUsername: String!, 
   $email: String!, 
   $password: String!) {
   addUser(
     firstName: $firstName, 
     lastName: $lastName, 
-    githubUsername: $githubUsername, 
     email: $email, 
     password: $password) {
     token
@@ -116,6 +114,18 @@ mutation addBounty($issueId: ID!, $bountyDollars: Float!) {
     description
     state
     bounty
+  }
+}
+`
+
+export const ADD_GITHUBUSERNAME = gql`
+mutation addGithubUsername($githubUsername: String!) {
+  addGithubUsername(githubUsername: $githubUsername) {
+    firstName
+    lastName
+    email
+    githubUsername
+    _id
   }
 }
 `
