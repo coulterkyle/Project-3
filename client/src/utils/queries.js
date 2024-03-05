@@ -28,8 +28,7 @@ query queryUser($userId: ID!) {
       title
       description
       state
-      bounty
-      voters {
+      bounty{
         _id
       }
     }
