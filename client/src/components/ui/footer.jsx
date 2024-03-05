@@ -20,7 +20,7 @@ export default function Footer() {
               <div className="row mt-3">
                 <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                   <h6 className="text-uppercase fw-bold mb-4">
-                    <i className="fas fa-gem me-3 text-success"></i>G<span className="text-success">it</span>Fi<span className="text-success">x</span>
+                    <i className="fa-solid fa-virus-slash me-3 text-success"></i>G<span className="text-success">it</span>Fi<span className="text-success">x</span>
                   </h6>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis deleniti alias repudiandae excepturi totam sint!
