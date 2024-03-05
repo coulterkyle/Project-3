@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
+import { QUERY_ME, QUERY_USERS } from '../utils/queries';
 import MyBounties from '../components/myBounties';
 import MyClaims from '../components/myClaims';
 
@@ -7,13 +7,13 @@ import MyClaims from '../components/myClaims';
 const Profile = () => {
 
     const { loading, data } = useQuery(QUERY_ME);
+
     if(loading) return <div className="container">Loading profile, please wait...</div>
-    
     const user = data?.me.firstName + ' ' + data?.me.lastName || [];
 
     return (
         <div className="container">
-            <h1>{`Welcome ${user}`}</h1>
+            <h2>{`Welcome ${user}`}</h2>
             <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingOne">
