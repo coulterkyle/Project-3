@@ -6,6 +6,7 @@ const listUsers = () => {
 
   const userData = data?.users || []
 
+
   if (loading) return <div className="container">Loading, please wait...</div>;
   
   return (

@@ -1,43 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 
 function Signup(props) {
-  const [rerender, setRerender] = useState(false);
+  // const [rerender, setRerender] = useState(false);
 
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
 
   //oauth
   const CLIENT_ID = '6073f6de696178eb4484'
-
-  useEffect(() => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const codeParam = urlParams.get('code');
-    console.log(codeParam)
-
-    if(codeParam && (localStorage.getItem('accessToken') === null)) {
-      async function getAccessToken() {
-        await fetch('http://localhost:3000/getAccessToken?code=' + codeParam, {
-          method: 'GET'
-        }).then((response) => {
-          return response.json();
-        }).then((data) => {
-          console.log(data);
-          if(data.access_token){
-            setRerender(!rerender);
-            localStorage.setItem('accessToken', data.access_token);
-          }
-        })
-      }
-      getAccessToken();
-    }
-
-  }, [])
-
 
   function loginWithGithub() {
     window.location.assign("https://github.com/login/oauth/authorize?client_id=" + CLIENT_ID);

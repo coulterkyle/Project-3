@@ -21,6 +21,11 @@ const resolvers = {
     users: async () => {
       return User.find().populate('savedIssues');
     },
+    githubUser: async (parent,  githubUsername ) => {
+      user = await User.findOne(githubUsername);
+
+      return user;
+    },
     issues: async (parent, args) => {
 
       return await Issue.find().populate(['voters', 'bounty']);
