@@ -21,6 +21,11 @@ const resolvers = {
     users: async () => {
       return User.find().populate('savedIssues');
     },
+    githubUser: async (parent,  githubUsername ) => {
+      user = await User.findOne(githubUsername);
+
+      return user;
+    },
     issues: async (parent, args) => {
 
       return await Issue.find().populate(['voters', 'bounty']);
@@ -152,8 +157,11 @@ const resolvers = {
       });
 
       return { session: session.id }
-    }
-
+    },
+    decodeStripe: async (parent, { sessionId }) => {
+      const session = await stripeTK.checkout.sessions.retrieve(sessionId);
+      return { total: session.amount_total }
+    },
   }
 };
 

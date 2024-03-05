@@ -13,7 +13,7 @@ function Nav() {
             <Link key={1} className="nav-link" to="/">
               Home
             </Link>,
-            <Link key={2} className="nav-link" to="/project/coulterkyle">
+            <Link key={2} className="nav-link" to="/project">
               Projects
             </Link>,
             <Link key={3} className="nav-link" to="/about">
@@ -39,7 +39,7 @@ function Nav() {
             <Link key={1} className="nav-link" to="/">
               Home
             </Link>,
-            <Link key={2} className="nav-link" to="/project/coulterkyle">
+            <Link key={2} className="nav-link" to="/project">
               Projects
             </Link>,
             <Link key={3} className="nav-link" to="/about">
@@ -64,8 +64,9 @@ function Nav() {
         <div className="container-fluid">
           <a className="navbar-brand" href="#">G<span className="text-success">it</span>Fi<span className="text-success">x</span></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
             <span className="navbar-toggler-icon"></span>
-          </button>
+          </a>
 
           {showNavigation()}
 

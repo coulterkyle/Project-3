@@ -25,6 +25,14 @@ query queryUser($userId: ID!) {
     githubUsername
     savedIssues {
       _id
+      issueId
+      title
+      description
+      state
+      bounty
+      voters {
+        _id
+      }
     }
   }
 }
@@ -45,4 +53,14 @@ query queryUsers {
 }
 `;
 
-
+export const QUERY_GITHUBUSER = gql`
+query GithubUsername($githubUsername: String!) {
+  githubUsername(githubUsername: $githubUsername) {
+    githubUsername
+    _id
+    firstName
+    lastName
+    email
+  }
+}
+`
