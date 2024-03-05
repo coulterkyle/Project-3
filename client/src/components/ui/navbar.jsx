@@ -8,7 +8,7 @@ export default function Nav({ auth, links }) {
         <ul className="navbar-nav me-auto mb-2 mb-md-0">
             {links.map((link, index) => <li key={index} className="nav-item">{link}</li>)}
         </ul>
-        <Link to="/profile" className="btn btn-outline-success m-2">Account</Link>
+        <Link to="/profile" className="btn btn-outline-success m-2">Profile</Link>
         <Link to="/" className="btn btn-outline-success m-2" onClick={Auth.logout}>Logout</Link>
       </div>
     );
