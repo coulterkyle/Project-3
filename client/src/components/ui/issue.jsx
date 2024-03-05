@@ -15,16 +15,18 @@ export default function issue({ issues }) {
 
     const { loading, data } = useQuery(QUERY_BOUNTIES);
     if(loading) return <div className="container">Loading bounties & issues, please wait...</div>
-    const bountyData = data.issues;
+    const bountyData = data?.issues || [];
     const bountyIds = data.issues.map((bounty, index) => {
         return bounty.issueId
     })
 
     const getBounty = (currValue, currIndex) => {
         const dataString = currValue.toString()
+
         if(bountyIds.includes(dataString)) {
-            console.log(bountyData[currIndex].bounty/100)
-            return <span data-issueId={`${bountyData[currIndex]._id}`}>${bountyData[currIndex].bounty/100}</span>
+            const tempindex = bountyIds.indexOf(dataString)
+            console.log(bountyData[tempindex].bounty/100)
+            return `${bountyData[tempindex].bounty/100}`
           }
         else {
             return ``
