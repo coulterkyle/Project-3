@@ -15,6 +15,7 @@ function Login(props) {
         variables: { email: formState.email, password: formState.password },
       });
       const token = mutationResponse.data.login.token;
+      localStorage.setItem('userId', mutationResponse.data.login.user._id)
       Auth.login(token);
     } catch (e) {
       console.log(e);
