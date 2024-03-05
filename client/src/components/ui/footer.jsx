@@ -30,7 +30,7 @@ export default function Footer() {
                 <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 d-none d-md-block">
                   <h6 className="text-uppercase text-success fw-bold mb-4">Contact</h6>
                   <p className="my-1"><i className="fas fa-home me-3"></i>Charlotte, NC 28210</p>
-                  <p className="my-1"><i className="fas fa-envelope me-3"></i>info@gitprize.dev</p>
+                  <p className="my-1"><i className="fas fa-envelope me-3"></i>info@gitfix.dev</p>
                   <p className="my-1"><i className="fas fa-phone me-3"></i>704 555 5555</p>
                   <p className="my-1"><i className="fas fa-print me-3"></i>704 555 5555</p>
                 </div>
@@ -38,7 +38,7 @@ export default function Footer() {
             </div>
           </section>
         
-          <div className="text-center py-3 text-success"> © 2024 GitPrize, LLC</div>
+          <div className="text-center py-3 text-success"> © 2024 GitFix, LLC</div>
         </footer>
     );
   }

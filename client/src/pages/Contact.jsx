@@ -60,7 +60,7 @@ const Contact = () => {
                             </li>
 
                             <li><i className="fas fa-envelope mt-4 fa-2x text-success"></i>
-                                <p>contact@gitprize.dev</p>
+                                <p>contact@gitfix.dev</p>
                             </li>
                         </ul>
                     </div>
