@@ -43,23 +43,28 @@ mutation addGithubUsername($githubUsername: String!) {
 `
 
 export const SAVE_ISSUE = gql`
-mutation saveIssue(
+mutation SaveIssue(
   $issueId: String!, 
   $title: String!, 
-  $description: String!, 
   $state: String!, 
-  $bounty: Float) {
+  $description: String, 
+  $bounty: Float, 
+  $bountyIssuer: ID) {
   saveIssue(issueId: $issueId, 
     title: $title, 
-    description: $description, 
     state: $state, 
-    bounty: $bounty) {
+    description: $description, 
+    bounty: $bounty, 
+    bountyIssuer: $bountyIssuer) {
     _id
     issueId
     title
     description
     state
     bounty
+    bountyIssuer {
+      _id
+    }
   }
 }
 `;
