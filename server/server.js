@@ -37,10 +37,10 @@ const startApolloServer = async () => {
 
   app.get('/getAccessToken', async function (req, res) {
 
-    console.log(req.query.code);
+    // console.log(req.query.code);
 
     const params = '?client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET + '&code=' + req.query.code;
-    console.log(params)
+    // console.log('param', params)
 
     await fetch(`https://github.com/login/oauth/access_token${params}`, {
       method: 'POST',
@@ -50,8 +50,8 @@ const startApolloServer = async () => {
     }).then((response) => {
       return response.json();
     }).then ((data) => {
-      console.log(data)
-      res.json(data);
+      // console.log('data',data)
+            res.redirect(`http://localhost:3000/?token=${data.access_token}`)
     })
   });
 
