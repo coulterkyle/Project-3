@@ -19,6 +19,15 @@ export const stripeCHECKOUT = gql`
   }
 `;
 
+export const decodeCHECKOUT = gql`
+  mutation Mutation($sessionId: String!) {
+    decodeStripe(sessionId: $sessionId) {
+      total
+    }
+  }
+`;
+
+
 export const ADD_USER = gql`
 mutation addUser(
   $firstName: String!, 
