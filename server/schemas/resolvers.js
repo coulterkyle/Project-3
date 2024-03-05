@@ -86,6 +86,18 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+    addGithubUsername: async (parent, { githubUsername }, context) => {
+      if (context.user) {;
+        const user = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $set: { githubUsername: githubUsername } },
+          { new: true }
+        );
+
+        return user;
+      }
+      throw AuthenticationError;
+    },
     removeIssue: async (parent, { issueId }, context) => {
       // console.log({ issueId })
       if (context.user) {

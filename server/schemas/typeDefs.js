@@ -50,6 +50,7 @@ const typeDefs = `
     checkout(itemId: String!, itemName: String!, itemAmount: Float!): Checkout
     addBounty(issueId: ID!, bountyDollars: Float!): Issue
     decodeStripe(sessionId: String!): Decoder
+    addGithubUsername(githubUsername: String!): User
   }
 `;
 
