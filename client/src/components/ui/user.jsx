@@ -4,7 +4,7 @@ export default function UserData({ users }) {
 
 
     return (
-        <div className="container" id="gh-user-list">
+        <div className="container mb-4"  id="gh-user-list">
         <ul className="list-group">
           {users.map((data, index) => 
             <li className="list-group-item d-flex align-items-center">
