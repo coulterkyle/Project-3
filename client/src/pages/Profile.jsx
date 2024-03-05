@@ -23,20 +23,17 @@ const Profile = () => {
     }
 
     useEffect(() => {
-        debugger
         if (localStorage.getItem('accessToken') === null) {
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             const codeParam = urlParams.get('token');
             console.log('code param', codeParam)
-debugger
             if (codeParam && (localStorage.getItem('accessToken') === null)) {
                 localStorage.setItem('accessToken', codeParam);
                 getUserData()
             }
         }
         async function getUserData() {
-            debugger
             try {
                 const response = await fetch(
                     'http://localhost:3001/getUserData', {
@@ -46,10 +43,8 @@ debugger
                         'Authorization': "Bearer " + localStorage.getItem('accessToken')// Bearer Authorization
                     }
                 })
-debugger
                 const data = await response.json()
                 console.log(data)
-                debugger
                 await addGithubUsername({
                     variables: {
                         githubUsername: data.login,
