@@ -46,7 +46,7 @@ const Success = () => {
               <img className="rounded-lg-3" src={success} alt="" width="250" />
             </div>
   
-            <div className="col-lg-7 p-3 p-lg-5 mx-auto pt-lg-3">
+            <div className="col-md-7 p-3 p-lg-5 mx-auto pt-lg-3">
               <h2 className="fw-bold text-success">BOUNTY RECEIVED</h2>
               <p className="lead">Thank you for your bounty for issue {bItem}.</p>
               <p id="stripeTotal">Total: ${bTotal}</p>

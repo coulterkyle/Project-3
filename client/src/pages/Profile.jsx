@@ -1,5 +1,5 @@
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
+import { QUERY_ME, QUERY_USERS } from '../utils/queries';
 import MyBounties from '../components/myBounties';
 import MyClaims from '../components/myClaims';
 import { ADD_GITHUBUSERNAME } from '../utils/mutations';
