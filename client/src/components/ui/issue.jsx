@@ -1,15 +1,25 @@
 import Modal from './modal';
-import { Link } from "react-router-dom";
+// import { useState } from 'react';
+import ClaimBtn from '../claimBtn';
+
 
 export default function issue({ issues }) {
 
-const setFormValues = (event) => {
-    /* Sets form values on modal to the current clicked on issue */
-    const bountyValues = document.getElementById(event.currentTarget.id)
-    document.getElementById('amount').value = 10
-    document.getElementById('item').value = bountyValues.id
-    document.getElementById('name').value = bountyValues.dataset.title
-}
+    const setFormValues = (event) => {
+        /* Sets form values on modal to the current clicked on issue */
+        const bountyValues = document.getElementById(event.currentTarget.id)
+        document.getElementById('amount').value = 10
+        document.getElementById('item').value = bountyValues.id
+        document.getElementById('name').value = bountyValues.dataset.title
+    }
+
+    // const [className, setClassName] = React.useState("foo");
+
+    // const [isActive, setState] = useState(false);
+
+    // const toggleClass = () => {
+    //     setState(!isActive);
+    // };
 
     return (
         <div className="container" id="gh-repo-issues">
@@ -31,16 +41,11 @@ const setFormValues = (event) => {
                             data-title={data.title}
                             data-body={data.body}
                             onClick={setFormValues}
-                            mailto="mailto:bugsquasher@example.com"   
                         >
-                                {data.bounty}
+                            {data.bounty}
                             <i className="fa-solid fa-hand-holding-dollar"></i>
                         </button>
-                        <a 
-                        className="mx-2 btn btn-dark" 
-                        title="Claim Bounty"
-                        href='mailto:yourmail@domain.com'>
-                            <i className="fa-solid fa-virus-slash"></i></a>
+                        <ClaimBtn />
                     </li>
                 )}
             </ul>
