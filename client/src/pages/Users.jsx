@@ -5,8 +5,6 @@ const listUsers = () => {
   const { loading, data } = useQuery(QUERY_USERS);
 
   const userData = data?.users || []
-
-
   if (loading) return <div className="container">Loading user's GitHub profiles, please wait...</div>;
   
   return (

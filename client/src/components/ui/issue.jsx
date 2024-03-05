@@ -1,6 +1,7 @@
 import Modal from './modal';
 import ClaimBtn from '../claimBtn';
-
+import { useQuery } from '@apollo/client'; 
+import { QUERY_BOUNTIES } from '../../utils/queries';
 
 export default function issue({ issues }) {
 
@@ -12,10 +13,30 @@ export default function issue({ issues }) {
         document.getElementById('name').value = bountyValues.dataset.title
     }
 
+    const { loading, data } = useQuery(QUERY_BOUNTIES);
+    if(loading) return <div className="container">Loading bounties & issues, please wait...</div>
+    const bountyData = data.issues;
+    const bountyIds = data.issues.map((bounty, index) => {
+        return bounty.issueId
+    })
+
+    const getBounty = (currValue, currIndex) => {
+        const dataString = currValue.toString()
+        if(bountyIds.includes(dataString)) {
+            console.log(bountyData[currIndex].bounty/100)
+            return `\$${bountyData[currIndex].bounty/100}`
+          }
+        else {
+            return ``
+          }
+    }
+
+
     return (
         <div className="container" id="gh-repo-issues">
             <ul className="list-group">
                 {issues.map((data, index) =>
+
                     <li key={index} className="list-group-item d-flex align-items-center">
                         <div className="badge text-bg-info rounded-pill">{data.vote}</div>
                         <div className="text-start mx-2">
@@ -34,6 +55,10 @@ export default function issue({ issues }) {
                             onClick={setFormValues}
                         >
                             {data.bounty}
+
+                                {getBounty(data.id, index)}
+                                <span>&nbsp;</span>
+
                             <i className="fa-solid fa-hand-holding-dollar"></i>
                         </button>
                         <ClaimBtn />

@@ -16,7 +16,7 @@ const issueSchema = new Schema({
   bounty: {
     type: Number,
   },
-  voters: [
+  bountyIssuer: [
     {
       type: Schema.Types.ObjectId,
       ref: 'User',
