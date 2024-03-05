@@ -26,6 +26,8 @@ export default function Modal() {
 
       localStorage.setItem("StripeId", itemId);
       localStorage.setItem("StripeName", itemName);
+      localStorage.setItem("StripeMount",itemAmount);
+      
 
       stripePromise.then((res) => {
         res.redirectToCheckout({ sessionId: mutationRes.data.checkout.session });
