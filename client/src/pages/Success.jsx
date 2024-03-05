@@ -3,11 +3,15 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { decodeCHECKOUT } from '../utils/mutations';
+import Error from './Error';
 
 const Success = () => {
   const { sessionId } = useParams()
   
   const [bTotal, setTotal] = useState(0);
+  const [bItem, setItem] = useState('');
+  const [bName, setName] = useState('');
+
   const [decodeMe, { loading, error }] = useMutation(decodeCHECKOUT);
 
   const decodeStripe = async () => {
@@ -21,6 +25,14 @@ const Success = () => {
       console.log('Total', res)
       setTotal(res/100) 
     });
+
+    
+    setItem(localStorage.getItem("StripeId"))
+    setName(localStorage.getItem("StripeName"))
+
+    localStorage.setItem("StripeId", '');
+    localStorage.setItem("StripeName", '');
+
     }, []);
 
     if (loading) return <div className="container">Loading, please wait...</div>;
@@ -36,9 +48,9 @@ const Success = () => {
   
             <div className="col-lg-7 p-3 p-lg-5 mx-auto pt-lg-3">
               <h2 className="fw-bold text-success">BOUNTY RECEIVED</h2>
-              <p className="lead">Thank you for your bounty for XX issue.</p>
-              <p>Other Information Will Load Here...</p>
+              <p className="lead">Thank you for your bounty for issue {bItem}.</p>
               <p id="stripeTotal">Total: ${bTotal}</p>
+              <p id="stripeItem">{bName}</p>
             </div>
           </div>
       </div>
