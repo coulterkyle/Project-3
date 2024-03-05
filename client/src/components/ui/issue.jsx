@@ -1,16 +1,17 @@
 import Modal from './modal';
+import ClaimBtn from '../claimBtn';
 import { useQuery } from '@apollo/client'; 
 import { QUERY_BOUNTIES } from '../../utils/queries';
 
 export default function issue({ issues }) {
 
-const setFormValues = (event) => {
-    /* Sets form values on modal to the current clicked on issue */
-    const bountyValues = document.getElementById(event.currentTarget.id)
-    document.getElementById('amount').value = 10
-    document.getElementById('item').value = bountyValues.id
-    document.getElementById('name').value = bountyValues.dataset.title
-}
+    const setFormValues = (event) => {
+        /* Sets form values on modal to the current clicked on issue */
+        const bountyValues = document.getElementById(event.currentTarget.id)
+        document.getElementById('amount').value = 10
+        document.getElementById('item').value = bountyValues.id
+        document.getElementById('name').value = bountyValues.dataset.title
+    }
 
     const { loading, data } = useQuery(QUERY_BOUNTIES);
     if(loading) return <div className="container">Loading bounties & issues, please wait...</div>
@@ -51,13 +52,16 @@ const setFormValues = (event) => {
                             data-bs-target="#modal"
                             data-title={data.title}
                             data-body={data.body}
-                            onClick={setFormValues}   
+                            onClick={setFormValues}
                         >
+                            {data.bounty}
+
                                 {getBounty(data.id, index)}
                                 <span>&nbsp;</span>
+
                             <i className="fa-solid fa-hand-holding-dollar"></i>
                         </button>
-                        <a href="#" className="mx-2 btn btn-dark" title="Claim Bounty"><i className="fa-solid fa-virus-slash"></i></a>
+                        <ClaimBtn />
                     </li>
                 )}
             </ul>
