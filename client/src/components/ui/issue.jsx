@@ -19,16 +19,16 @@ const setFormValues = (event) => {
         return bounty.issueId
     })
 
-
-    console.log('IDs:', bountyIds)
-    console.log('data:', bountyData)
-
-    issues.map((data, index) => {
-        const dataString = data.id.toString()
-        console.log("ID Check:", bountyIds.includes(dataString))
-        if(bountyIds.includes(dataString)) console.log(bountyData[index].bounty)
-            else console.log('nay')
-    })
+    const getBounty = (currValue, currIndex) => {
+        const dataString = currValue.toString()
+        if(bountyIds.includes(dataString)) {
+            console.log(bountyData[currIndex].bounty/100)
+            return `\$${bountyData[currIndex].bounty/100}`
+          }
+        else {
+            return ``
+          }
+    }
 
 
     return (
@@ -53,7 +53,8 @@ const setFormValues = (event) => {
                             data-body={data.body}
                             onClick={setFormValues}   
                         >
-                                {data.bounty}
+                                {getBounty(data.id, index)}
+                                <span>&nbsp;</span>
                             <i className="fa-solid fa-hand-holding-dollar"></i>
                         </button>
                         <a href="#" className="mx-2 btn btn-dark" title="Claim Bounty"><i className="fa-solid fa-virus-slash"></i></a>
