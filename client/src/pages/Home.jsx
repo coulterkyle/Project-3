@@ -1,12 +1,10 @@
 import background from '../assets/backgroundImg3.png'
-import logo from '../assets/BugDebugger-nobg.png'
+import logo from '../assets/BugDebugger-nobg-shadow.png'
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 
 const Home = () => {
-
-
 
   // if (localStorage.getItem('accessToken') === null){
   useEffect(() => {
