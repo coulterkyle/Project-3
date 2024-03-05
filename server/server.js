@@ -51,7 +51,7 @@ const startApolloServer = async () => {
       return response.json();
     }).then ((data) => {
       // console.log('data',data)
-            res.redirect(`http://localhost:3000/?token=${data.access_token}`)
+            res.redirect(`http://localhost:3000/profile/?token=${data.access_token}`)
     })
   });
 
