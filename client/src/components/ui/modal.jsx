@@ -54,8 +54,8 @@ export default function Modal() {
                 </div>
             </div>
             <div id="hiddenValues">
-              <input type="text" id="item" />
-              <input type="text" id="name" />
+              <input type="text" id="item" hidden />
+              <input type="text" id="name" hidden />
             </div>
             <div className="modal-footer">
             <button type="button" className="btn btn-dark" data-bs-dismiss="modal">Close</button>
