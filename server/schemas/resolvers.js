@@ -21,7 +21,7 @@ const resolvers = {
     users: async () => {
       return User.find().populate('savedIssues');
     },
-    githubUser: async (parent,  githubUsername ) => {
+    githubUser: async (parent, githubUsername) => {
       user = await User.findOne(githubUsername);
 
       return user;
@@ -73,6 +73,19 @@ const resolvers = {
 
       return { token, user };
     },
+    addGithubUsername: async (parent, { githubUsername }, context) => {
+      if (context.user) {
+        ;
+        const user = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $set: { githubUsername: githubUsername } },
+          { new: true }
+        );
+
+        return user;
+      }
+      throw AuthenticationError;
+    },
     saveIssue: async (parent, issueData, context) => {
       if (context.user) {
         const issue = await Issue.create(issueData);
@@ -86,20 +99,7 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-    addGithubUsername: async (parent, { githubUsername }, context) => {
-      if (context.user) {;
-        const user = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $set: { githubUsername: githubUsername } },
-          { new: true }
-        );
-
-        return user;
-      }
-      throw AuthenticationError;
-    },
     removeIssue: async (parent, { issueId }, context) => {
-      // console.log({ issueId })
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
@@ -109,36 +109,14 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-    addVote: async (parent, { issueId }, context) => {
-      if (context.user) {
-        return await Issue.findByIdAndUpdate(
-          { _id: issueId },
-          { $addToSet: { voters: context.user._id } },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
-      }
-      throw AuthenticationError;
-    },
-    removeVote: async (parent, { issueId }, context) => {
-      if (context.user) {
-        return await Issue.findByIdAndUpdate(
-          { _id: issueId },
-          { $pull: { voters: context.user._id } },
-          { new: true },
-        );
-      }
-      throw AuthenticationError;
-    },
-    addBounty: async (parent, { issueId, bountyDollars }, context) => {
-      console.log(bountyDollars)
-      // const bountyDollars = Math.abs(bounty)
+    addBounty: async (parent, { issueId, bountyDollars, userId }, context) => {
       if (context.user) {
         const issue = await Issue.findByIdAndUpdate(
           { _id: issueId },
-          { $inc: { bounty: bountyDollars } },
+          {
+            $inc: { bounty: bountyDollars },
+            $addToSet: { bountyIssuer: userId }
+          },
           { new: true }
         );
 
@@ -150,23 +128,23 @@ const resolvers = {
       const rootURL = 'http://localhost:3000'
       const session = await stripeTK.checkout.sessions.create
         ({
-        payment_method_types: ['card'],
-        line_items: [
-          {
-            quantity: 1,
-            price_data: {
-              currency: 'usd',
-              unit_amount: itemAmount,
-              product_data: {
-                name: itemId,
-                description: itemName
+          payment_method_types: ['card'],
+          line_items: [
+            {
+              quantity: 1,
+              price_data: {
+                currency: 'usd',
+                unit_amount: itemAmount,
+                product_data: {
+                  name: itemId,
+                  description: itemName
+                }
               }
-            }
-          }],
-        mode: 'payment',
-        success_url: `${rootURL}/success/{CHECKOUT_SESSION_ID}`,
-        cancel_url: `${rootURL}/cancel`,
-      });
+            }],
+          mode: 'payment',
+          success_url: `${rootURL}/success/{CHECKOUT_SESSION_ID}`,
+          cancel_url: `${rootURL}/cancel`,
+        });
 
       return { session: session.id }
     },

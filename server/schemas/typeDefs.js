@@ -15,7 +15,7 @@ const typeDefs = `
     description: String
     state: String
     bounty: Float
-    voters: [User]
+    bountyIssuer: [User]
   }
 
   type Auth {
@@ -43,12 +43,10 @@ const typeDefs = `
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    saveIssue(issueId: String!, title: String!, description: String!, state: String!, bounty: Float): Issue
+    saveIssue(issueId: String!, title: String!, description: String, state: String!, bounty: Float, bountyIssuer: ID): Issue
     removeIssue(issueId: String!): User
-    addVote(issueId: ID!): Issue
-    removeVote(issueId: ID!): Issue
     checkout(itemId: String!, itemName: String!, itemAmount: Float!): Checkout
-    addBounty(issueId: ID!, bountyDollars: Float!): Issue
+    addBounty(issueId: ID!, bountyDollars: Float!, userId: ID!): Issue
     decodeStripe(sessionId: String!): Decoder
     addGithubUsername(githubUsername: String!): User
   }
