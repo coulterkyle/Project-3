@@ -41,7 +41,7 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, githubUsername: String!, email: String!, password: String!): Auth
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     saveIssue(issueId: String!, title: String!, description: String!, state: String!, bounty: Float): Issue
     removeIssue(issueId: String!): User
@@ -50,6 +50,7 @@ const typeDefs = `
     checkout(itemId: String!, itemName: String!, itemAmount: Float!): Checkout
     addBounty(issueId: ID!, bountyDollars: Float!): Issue
     decodeStripe(sessionId: String!): Decoder
+    addGithubUsername(githubUsername: String!): User
   }
 `;
 

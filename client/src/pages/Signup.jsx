@@ -2,20 +2,21 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
-import { ADD_USER } from '../utils/mutations';
+import { ADD_GITHUBUSERNAME, ADD_USER } from '../utils/mutations';
 
 function Signup(props) {
   // const [rerender, setRerender] = useState(false);
 
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
+  // const [addGithubUsername, { error }] = useMutation(ADD_GITHUBUSERNAME);
 
   //oauth
-  const CLIENT_ID = '6073f6de696178eb4484'
+  // const CLIENT_ID = '6073f6de696178eb4484'
 
-  function loginWithGithub() {
-    window.location.assign("https://github.com/login/oauth/authorize?client_id=" + CLIENT_ID);
-  }
+  // function loginWithGithub() {
+  //   window.location.assign("https://github.com/login/oauth/authorize?client_id=" + CLIENT_ID);
+  // }
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -23,7 +24,7 @@ function Signup(props) {
       variables: {
         email: formState.email,
         password: formState.password,
-        githubUsername: formState.githubUsername,
+        // githubUsername: formState.githubUsername,
         firstName: formState.firstName,
         lastName: formState.lastName,
       },
@@ -51,7 +52,7 @@ function Signup(props) {
                   <h1 className="text-uppercase text-success text-center mb-5">Create an account</h1>
                   <div className="d-flex justify-content-center">
 
-                    <button onClick={loginWithGithub}>Login with Github</button>
+                    {/* <button onClick={loginWithGithub}>Login with Github</button> */}
 
                   </div>
                   <form className="form signup-form" onSubmit={handleFormSubmit}>
@@ -84,7 +85,7 @@ function Signup(props) {
                         Looks good!
                       </div>
                     </div>
-                    <div className="form-outline mb-4">
+                    {/* <div className="form-outline mb-4">
                       <label htmlFor="githubUsername" className="form-label"></label>
                       <input
                         className="form-control form-control-lg"
@@ -97,7 +98,7 @@ function Signup(props) {
                       <div className="invalid-feedback">
                         Please input your Github username.
                       </div>
-                    </div>
+                    </div> */}
                     <div className="form-outline mb-4">
                       <label htmlFor="email" className="form-label"></label>
                       <input

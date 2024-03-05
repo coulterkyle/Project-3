@@ -6,33 +6,33 @@ import { useMutation, useQuery } from '@apollo/client';
 
 const Home = () => {
 
-  // if (localStorage.getItem('accessToken') === null){
-  useEffect(() => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const codeParam = urlParams.get('token');
-    console.log('code param',codeParam)
+//   if (localStorage.getItem('accessToken') === null){
+//   useEffect(() => {
+//     const queryString = window.location.search;
+//     const urlParams = new URLSearchParams(queryString);
+//     const codeParam = urlParams.get('token');
+//     console.log('code param',codeParam)
 
-    if(codeParam && (localStorage.getItem('accessToken') === null)) {
-      localStorage.setItem('accessToken', codeParam);
-    }
+//     if(codeParam && (localStorage.getItem('accessToken') === null)) {
+//       localStorage.setItem('accessToken', codeParam);
+//     }
 
-  }, [])
+//   }, [])
 
-  async function getUserData(){
-    await fetch('http://localhost:3001/getUserData', {
-      method: 'GET',
-      headers: {
-        'Authorization' : "Bearer " + localStorage.getItem('accessToken')// Bearer Authorization
-      }
-    }).then((response) => {
-      return response.json();
-    }).then((data) => {
-      console.log(data)
-    })
-  }
+//   async function getUserData(){
+//     await fetch('http://localhost:3001/getUserData', {
+//       method: 'GET',
+//       headers: {
+//         'Authorization' : "Bearer " + localStorage.getItem('accessToken')// Bearer Authorization
+//       }
+//     }).then((response) => {
+//       return response.json();
+//     }).then((data) => {
+//       console.log(data)
+//     })
+//   }
 
-  getUserData();
+//   getUserData();
 // }
 
 
