@@ -25,9 +25,6 @@ function Nav() {
             <Link key={5} className="nav-link" to="/bountyboard">
               BountyBoard
             </Link>,
-            <Link key={6} className="nav-link" to="/profile">
-              Profile
-            </Link>,
           ]}
         />
       );
@@ -39,9 +36,9 @@ function Nav() {
             <Link key={1} className="nav-link" to="/">
               Home
             </Link>,
-            <Link key={2} className="nav-link" to="/project">
-              Projects
-            </Link>,
+            // <Link key={2} className="nav-link" to="/project">
+            //   Projects
+            // </Link>,
             <Link key={3} className="nav-link" to="/about">
               About
             </Link>,
@@ -66,7 +63,7 @@ function Nav() {
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
             <span className="navbar-toggler-icon"></span>
-          </a>
+          </button>
 
           {showNavigation()}
 

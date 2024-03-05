@@ -7,7 +7,7 @@ const listUsers = () => {
   const userData = data?.users || []
 
 
-  if (loading) return <div className="container">Loading, please wait...</div>;
+  if (loading) return <div className="container">Loading user's GitHub profiles, please wait...</div>;
   
   return (
     // change to a ui component once we know why we can't list all users
