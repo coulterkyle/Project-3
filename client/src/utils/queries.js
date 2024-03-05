@@ -53,4 +53,14 @@ query queryUsers {
 }
 `;
 
-
+export const QUERY_GITHUBUSER = gql`
+query GithubUsername($githubUsername: String!) {
+  githubUsername(githubUsername: $githubUsername) {
+    githubUsername
+    _id
+    firstName
+    lastName
+    email
+  }
+}
+`
