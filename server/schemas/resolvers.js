@@ -28,7 +28,7 @@ const resolvers = {
     },
     issues: async (parent, args) => {
 
-      return await Issue.find().populate(['voters', 'bounty']);
+      return await Issue.find().populate(['bounty']);
 
     },
     issue: async (parent, { issueId }) => {
