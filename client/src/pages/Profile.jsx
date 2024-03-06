@@ -5,7 +5,7 @@ import MyClaims from '../components/myClaims';
 import { ADD_GITHUBUSERNAME } from '../utils/mutations';
 import { useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
-import Auth from '../utils/auth';import Auth from '../utils/auth'
+import Auth from '../utils/auth';
 
 
 const Profile = () => {
