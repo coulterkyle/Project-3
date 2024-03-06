@@ -68,11 +68,17 @@ query getBountyValues {
   }
 }`;
 
+
+
 export const QUERY_ISSUES = gql`
 query Query {
   issues {
     _id
     issueId
+    title
+    description
+    state
+    bounty
   }
 }
 `;
