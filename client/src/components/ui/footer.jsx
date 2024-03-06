@@ -23,7 +23,7 @@ export default function Footer() {
                     <i className="fa-solid fa-virus-slash me-3 text-success"></i>G<span className="text-success">it</span>Fi<span className="text-success">x</span>
                   </h6>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis deleniti alias repudiandae excepturi totam sint!
+                  Remember, debugging is like being the detective in a crime movie where you are also the murderer. Happy sleuthing!
                   </p>
                 </div>
 
