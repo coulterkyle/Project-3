@@ -74,7 +74,7 @@ const Profile = () => {
                     </h2>
                     <div id="collapseOne" className="accordion-collapsed collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                            <MyBounties />
+                            {/* <MyBounties /> */}
                             {/* <ul>
                                 <li>My Bounties offered</li>
                                 <li>Will have to be listed here</li>

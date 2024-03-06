@@ -29,9 +29,6 @@ query queryUser($userId: ID!) {
       description
       state
       bounty
-      voters {
-        _id
-      }
     }
   }
 }`;
@@ -66,5 +63,6 @@ query getBountyValues {
   issues {
     bounty
     issueId
+    _id
   }
 }`;

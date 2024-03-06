@@ -4,13 +4,14 @@ import { QUERY_ME } from '../utils/queries';
 export default function MyBounties() {
     
     const { loading, data } = useQuery(QUERY_ME);
+
     if(loading) return <div className="container">Loading bounties, please wait...</div>
-    console.info('MyBounties:', data.me.savedIssues)
+    const user = data?.me || [];
 
     return (
         <div className="container" id="gh-repo-issues">
             <ul className="list-group">
-                {data.me.savedIssues.map((data, index) => 
+                {user.savedIssues.map((data, index) => 
                     <li key={index} className="list-group-item d-flex align-items-center">
                         <div className="badge text-bg-info rounded-pill">{data.vote}</div>
                         <div className="text-start mx-2">
