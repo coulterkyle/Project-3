@@ -32,12 +32,14 @@ Once logged in, users can view a list of all users signed up for GitFix.  They c
 
 When looking at open issues, users are able to add bounties to specific issues, or "claim" the issue to debug.
 
-When the "Add Bounty" button is selected.  The user is asked to enter a Bounty Amount, then directed to Stripe to add their method of payment.
+When the "Add Bounty" button is selected, the user is asked to enter a Bounty Amount, then directed to Stripe to add their method of payment.
 Once the payment has been processed, that amount has been added to the bounty amount for this issue.
+
+When the "Claim" button is selected, the user is directed to email the owner of the repo and the "Claim" button is disabled.
 
 On the user's profile page, they are able to view a list of the issues that they have offered bounties for, as well as the bounties that they have claimed.
 
-
+The BountyBoard displays the top 3 bounties in the database.
 
 ## Credits
 
