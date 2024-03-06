@@ -76,7 +76,6 @@ const Profile = () => {
                         <div className="accordion-body">
 
                             <MyBounties />
-
                         </div>
                     </div>
                 </div>
