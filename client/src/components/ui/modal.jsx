@@ -1,7 +1,7 @@
 import { useMutation } from '@apollo/client';
 import { stripeCHECKOUT } from '../../utils/mutations';
 import { loadStripe } from '@stripe/stripe-js';
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_ClIENT_KEY);
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_CLIENT_KEY);
 
 export default function Modal() {
 

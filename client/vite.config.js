@@ -10,7 +10,7 @@ export default defineConfig({
     open: true,
     proxy: {
       '/graphql': {
-        target: process.env.VITE_ROOT_URL,
+        target: process.env.VITE_ROOT_URL || 'http://localhost:3001',
         secure: false,
         changeOrigin: true
       }
