@@ -36,7 +36,7 @@ const Profile = () => {
         async function getUserData() {
             try {
                 const response = await fetch(
-                    'http://localhost:3001/getUserData', {
+                    import.meta.env.VITE_ROOT_URL+ '/getUserData', {
                     method: 'GET',
                     headers:
                     {

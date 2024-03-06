@@ -13,8 +13,7 @@ const fetch = (...args) =>
   import('node-fetch').then(({default: fetch}) => fetch(...args));
 const bodyParser = require('body-parser');
 
-const CLIENT_ID = '6073f6de696178eb4484';
-const CLIENT_SECRET = '3464eed34ead7e65d4d442c8c2b94ad5aa5d9d11'
+
 
 
 const PORT = process.env.PORT || 3001;
@@ -39,7 +38,7 @@ const startApolloServer = async () => {
 
     // console.log(req.query.code);
 
-    const params = '?client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET + '&code=' + req.query.code;
+    const params = '?client_id=' + process.env.GITHUB_CLIENT_ID + '&client_secret=' + process.env.GITHUB_CLIENT_SECRET + '&code=' + req.query.code;
     // console.log('param', params)
 
     await fetch(`https://github.com/login/oauth/access_token${params}`, {
@@ -51,7 +50,7 @@ const startApolloServer = async () => {
       return response.json();
     }).then ((data) => {
       // console.log('data',data)
-            res.redirect(`http://localhost:3000/profile/?token=${data.access_token}`)
+            res.redirect(process.env.ROOT_URL + `/profile/?token=${data.access_token}`)
     })
   });
 
@@ -94,8 +93,6 @@ const startApolloServer = async () => {
 
   db.once('open', () => {
     app.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
-      console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
     });
   });
 };
