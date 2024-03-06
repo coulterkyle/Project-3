@@ -75,4 +75,17 @@ query Query {
     issueId
   }
 }
-`
+`;
+
+export const QUERY_MY_BOUNTIES = gql`
+query Query {
+  me {
+    savedIssues {
+      bounty
+      title
+      state
+      issueId
+    }
+  }
+}
+`;
