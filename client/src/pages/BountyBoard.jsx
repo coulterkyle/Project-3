@@ -92,7 +92,7 @@ export default function BountyBoard({ issues }) {
                                 <small>{data.description}</small>
                             </div>
                             <button className="ms-auto btn btn-success" type="button">
-                                {data.bounty}
+                                {data.bounty/100}
                                 <i className="fa-solid fa-hand-holding-dollar"></i>
                             </button>
                             <a href="#" className="mx-2 btn btn-dark" title="Claim Bounty"><i className="fa-solid fa-virus-slash"></i></a>
