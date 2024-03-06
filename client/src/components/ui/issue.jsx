@@ -23,8 +23,8 @@ export default function issue({ issues }) {
     const getBounty = (currValue, currIndex) => {
         const dataString = currValue.toString()
         if(bountyIds.includes(dataString)) {
-            console.log(bountyData[currIndex].bounty/100)
-            return <span data-issueId={`${bountyData[currIndex]._id}`}>${bountyData[currIndex].bounty/100}</span>
+            const tempindex = bountyIds.indexOf(dataString)
+            return `\$${bountyData[tempindex].bounty/100}`
           }
         else {
             return ``
