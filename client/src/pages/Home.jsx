@@ -47,7 +47,7 @@ const Home = () => {
             </div>
             <div className="col-md-8">
               <h2 className="fw-bold text-success">ARE YOU READY TO HUNT?</h2>
-              <p className="lead">Some quorky stuff about debugging other developers' apps.</p>
+              <p className="lead">Find bugs, fix issues, GET PAID</p>
               <div className="d-grid d-md-flex justify-content-md-start">
                 {/* sending to signup for now - can change or add different logic */}
                 <Link className="btn btn-success btn-lg px-4 me-md-2" to="/signup">Join the Hunt</Link>
