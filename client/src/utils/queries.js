@@ -29,6 +29,7 @@ query queryUser($userId: ID!) {
       description
       state
       bounty
+
     }
   }
 }`;
