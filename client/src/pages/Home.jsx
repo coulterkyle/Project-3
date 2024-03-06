@@ -67,13 +67,13 @@ const Home = () => {
               {/* Links the whole box to that particular issue */}
               <a style={{ textDecoration: 'none' }} href="http://localhost:3000/project/coulterkyle/Project-3">
                 <div className="card-header py-3">
-                  <h4 className="my-0 fw-normal">Kyle's Issue Something</h4>
+                  <h4 className="my-0 fw-normal">coulterkyle Project 3</h4>
                 </div>
                 <div className="card-body">
-                  <h1 className="card-title pricing-card-title text-success">$1,000,000</h1>
+                  <h1 className="card-title pricing-card-title text-success">$1,000</h1>
                   <ul className="list-unstyled mt-3 mb-4">
-                    <li>Brief description</li>
-                    <li>Blah, Blah, something, something...</li>
+                    <li>Help Bounty Issuers Claim Bounty</li>
+                    <li>Send notification and review code</li>
                   </ul>
                   <button type="button" className="w-100 btn btn-lg btn-outline-primary btn-success">CLAIM BOUNTY</button>
                 </div>
@@ -86,13 +86,13 @@ const Home = () => {
               {/* Links the whole box to that particular issue */}
               <a style={{ textDecoration: 'none' }} href="http://localhost:3000/project/coulterkyle/Project-3">
                 <div className="card-header py-3">
-                  <h4 className="my-0 fw-normal">Kyle's Issue Something</h4>
+                  <h4 className="my-0 fw-normal">dcast217 Project 3</h4>
                 </div>
                 <div className="card-body">
-                  <h1 className="card-title pricing-card-title text-success">$1,000,000</h1>
+                  <h1 className="card-title pricing-card-title text-success">$500</h1>
                   <ul className="list-unstyled mt-3 mb-4">
-                    <li>Brief description</li>
-                    <li>Blah, Blah, something, something...</li>
+                    <li>Ability to Upvote Issues</li>
+                    <li>Improve visibility of priority issues</li>
                   </ul>
                   <button type="button" className="w-100 btn btn-lg btn-outline-primary btn-success">CLAIM BOUNTY</button>
                 </div>
@@ -105,13 +105,13 @@ const Home = () => {
               {/* Links the whole box to that particular issue */}
               <a style={{ textDecoration: 'none' }} href="http://localhost:3000/project/coulterkyle/Project-3">
                 <div className="card-header py-3">
-                  <h4 className="my-0 fw-normal">Kyle's Issue Something</h4>
+                  <h4 className="my-0 fw-normal">NatalieYaspo Project 3</h4>
                 </div>
                 <div className="card-body">
-                  <h1 className="card-title pricing-card-title text-success">$1,000,000</h1>
+                  <h1 className="card-title pricing-card-title text-success">$750</h1>
                   <ul className="list-unstyled mt-3 mb-4">
-                    <li>Brief description</li>
-                    <li>Blah, Blah, something, something...</li>
+                    <li>Automate payout</li>
+                    <li>Allow our users to get paid!</li>
                   </ul>
                   <button type="button" className="w-100 btn btn-lg btn-outline-primary btn-success">CLAIM BOUNTY</button>
                 </div>

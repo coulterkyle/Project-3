@@ -21,40 +21,77 @@ const Success = () => {
     return decodeData.data.decodeStripe.total
   }
   
-  console.log('bItem', bItem, 'bTotal', bTotal, 'bName', bName)
-  const newIssue = async () => {
-    try {
-      const mutationResponse = await saveIssue({
-        variables: {
-          issueId: localStorage.getItem("StripeId"),
-          title: localStorage.getItem("StripeName"),
-          state: "open",
-          bounty: parseInt(localStorage.getItem("StripeMount")),
-          bountyIssuer: localStorage.getItem('userId')
-        }
-      })
-    } catch (error) {
-      console.error(error)
-    }
+  const tempData = data?.issues || [];
+  
+  
+  // console.log('tempdata', tempData)
+
+  // const issueData = data.issues
+  const issueIds = storedData.map((newData, index) => {
+
+    console.log(typeof newData.issueId)
+
+    return newData.issueId
+  })
+
+  const addorUpdate = async () => {
+    const returnId = localStorage.getItem('StripeId')
+
+    console.log('t or f',!issueIds.includes(localStorage.getItem("StripeId")), 'return id', returnId, issueIds)
+
+    // issueIds.map((iData)=> {
+    //   console.log('idata is type', typeof iData, 'return data is type', typeof returnId)
+    //   // console.log(iData, returnId)
+    // })
+
+    if (!issueIds.includes(returnId)) {
+      try {
+          console.log('first function')
+        const mutationResponse = await saveIssue({
+          variables: {
+            issueId: localStorage.getItem("StripeId"),
+            title: localStorage.getItem("StripeName"),
+            state: "open",
+            bounty: parseInt(localStorage.getItem("StripeMount")),
+            bountyIssuer: localStorage.getItem('userId')
+          }
+        })
+      } catch (error) {
+        console.error(error)
+      }
+    } else {
+      try {
+        console.log('second')
+        const mutationResponse = await addBounty({
+          variables: {
+            issueId: localStorage.getItem("StripeId"),
+            bountyDollars: parseInt(localStorage.getItem("StripeMount")),
+            userId: localStorage.getItem('userId')
+          }
+        })
+      }catch (error) {
+        console.error(error)
+      }
+    }  
   }
 
-  useEffect(() => {
-    const dataDecode = decodeStripe()
-    dataDecode.then((res) => {
-      console.log('Total', res)
-      setTotal(res / 100)
-    });
+    useEffect(() => {
+      const dataDecode = decodeStripe()
+      dataDecode.then((res) => {
+        console.log('Total', res)
+        setTotal(res / 100)
+      });
 
 
-    setItem(localStorage.getItem("StripeId"))
-    setName(localStorage.getItem("StripeName"))
+      setItem(localStorage.getItem("StripeId"))
+      setName(localStorage.getItem("StripeName"))
 
-    // localStorage.setItem("StripeId", '');
-    // localStorage.setItem("StripeName", '');
+      // localStorage.setItem("StripeId", '');
+      // localStorage.setItem("StripeName", '');
 
-    newIssue()
-  }, []);
-  
+        addorUpdate()
+      
+    },[]);
   
   
   

@@ -28,9 +28,8 @@ query queryUser($userId: ID!) {
       title
       description
       state
-      bounty{
-        _id
-      }
+      bounty
+
     }
   }
 }`;
@@ -65,5 +64,6 @@ query getBountyValues {
   issues {
     bounty
     issueId
+    _id
   }
 }`;
