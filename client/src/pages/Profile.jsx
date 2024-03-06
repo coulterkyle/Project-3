@@ -4,10 +4,11 @@ import MyBounties from '../components/myBounties';
 import MyClaims from '../components/myClaims';
 import { ADD_GITHUBUSERNAME } from '../utils/mutations';
 import { useEffect } from 'react';
+import { Navigate } from 'react-router-dom'
 
 
 const Profile = () => {
-
+    if(!Auth.loggedIn()) return <Navigate to="/login" />
     const { loading, data } = useQuery(QUERY_ME);
 
     const user = data?.me.firstName + ' ' + data?.me.lastName || [];
