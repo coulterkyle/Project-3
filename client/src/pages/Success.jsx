@@ -2,7 +2,7 @@ import success from '../assets/success.png'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
-import {QUERY_ME} from '../utils/queries';
+import { QUERY_ISSUES } from '../utils/queries';
 import { decodeCHECKOUT, SAVE_ISSUE } from '../utils/mutations';
 import Error from './Error';
 
@@ -16,6 +16,8 @@ const Success = () => {
   const [decodeMe, { loading, error }] = useMutation(decodeCHECKOUT);
   const [saveIssue] = useMutation(SAVE_ISSUE);
 
+  const { data } = useQuery(QUERY_ISSUES)
+
   const decodeStripe = async () => {
     const decodeData = await decodeMe({ variables: { sessionId: sessionId } })
     return decodeData.data.decodeStripe.total
@@ -27,7 +29,7 @@ const Success = () => {
   // console.log('tempdata', tempData)
 
   // const issueData = data.issues
-  const issueIds = storedData.map((newData, index) => {
+  const issueIds = tempData.map((newData, index) => {
 
     console.log(typeof newData.issueId)
 
