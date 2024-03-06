@@ -37,17 +37,6 @@ const resolvers = {
       return issue;
 
     },
-    // bounties: async (parent, args) => {
-
-    //   return await Bounty.find().populate('bountyIssuer');
-
-    // },
-    // bounty: async (parent, { bountyId }) => {
-    //   const issue = await Bounty.findById(issueId).populate('bountyIssuer')
-
-    //   return issue;
-
-    // },
   },
   Mutation: {
     addUser: async (parent, args) => {
