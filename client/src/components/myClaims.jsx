@@ -4,7 +4,7 @@ export default function MyClaims({ issues }) {
         <div className="container" id="gh-repo-issues">
             <ul className="list-group">
                 {/* {issues.map((data, index) => */}
-                <li>pull something in here</li>
+                <li>Loading...</li>
                     {/* <li key={index} className="list-group-item d-flex align-items-center">
                         <div className="badge text-bg-info rounded-pill">{data.vote}</div>
                         <div className="text-start mx-2">
