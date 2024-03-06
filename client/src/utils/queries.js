@@ -66,3 +66,12 @@ query getBountyValues {
     _id
   }
 }`;
+
+export const QUERY_ISSUES = gql`
+query Query {
+  issues {
+    _id
+    issueId
+  }
+}
+`
