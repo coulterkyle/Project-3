@@ -4,7 +4,7 @@ const typeDefs = `
     firstName: String!
     lastName: String!
     email: String!
-    githubUsername: String!
+    githubUsername: String
     savedIssues: [Issue]
   }
 
