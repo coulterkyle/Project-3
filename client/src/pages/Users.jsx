@@ -1,7 +1,8 @@
 import { useQuery } from '@apollo/client'; import { QUERY_USERS } from '../utils/queries';
 import UserData from "../components/ui/user"
-
+import { Navigate } from 'react-router-dom'
 const listUsers = () => {
+  if(!Auth.loggedIn()) return <Navigate to="/login" />
   const { loading, data } = useQuery(QUERY_USERS);
 
   const userData = data?.users || []

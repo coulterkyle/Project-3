@@ -1,4 +1,6 @@
+import { Navigate } from 'react-router-dom'
 export default function BountyBoard({ issues }) {
+    if(!Auth.loggedIn()) return <Navigate to="/login" />
     return (
         <div>
             {/* Top Bounties */}
