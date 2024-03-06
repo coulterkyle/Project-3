@@ -3,7 +3,6 @@ import { QUERY_ISSUES } from '../utils/queries'
 import { useQuery } from '@apollo/client'
 import Auth from '../utils/auth'
 
-
 export default function BountyBoard({ issues }) {
 
     if (!Auth.loggedIn()) return <Navigate to="/login" />
@@ -26,7 +25,7 @@ export default function BountyBoard({ issues }) {
                     <div className="col">
                         <div className="card mb-4 rounded-3 shadow-sm">
                             {/* Links the whole box to that particular issue */}
-                            <a style={{ textDecoration: 'none' }} href="http://localhost:3000/project/coulterkyle/Project-3">
+                            <a style={{ textDecoration: 'none' }} href="/project">
                                 <div className="card-header py-3">
                                     <h4 className="my-0 fw-normal">coulterkyle Project 3</h4>
                                 </div>
@@ -45,7 +44,7 @@ export default function BountyBoard({ issues }) {
                     <div className="col">
                         <div className="card mb-4 rounded-3 shadow-sm">
                             {/* Links the whole box to that particular issue */}
-                            <a style={{ textDecoration: 'none' }} href="http://localhost:3000/project/coulterkyle/Project-3">
+                            <a style={{ textDecoration: 'none' }} href="/project">
                                 <div className="card-header py-3">
                                     <h4 className="my-0 fw-normal">dcast217 Project 3</h4>
                                 </div>
@@ -64,7 +63,7 @@ export default function BountyBoard({ issues }) {
                     <div className="col">
                         <div className="card mb-4 rounded-3 shadow-sm">
                             {/* Links the whole box to that particular issue */}
-                            <a style={{ textDecoration: 'none' }} href="http://localhost:3000/project/coulterkyle/Project-3">
+                            <a style={{ textDecoration: 'none' }} href="/project">
                                 <div className="card-header py-3">
                                     <h4 className="my-0 fw-normal">NatalieYaspo Project 3</h4>
                                 </div>
@@ -92,7 +91,7 @@ export default function BountyBoard({ issues }) {
                                 <small>{data.description}</small>
                             </div>
                             <button className="ms-auto btn btn-success" type="button">
-                                {data.bounty/100}
+                                ${data.bounty/100}&nbsp;
                                 <i className="fa-solid fa-hand-holding-dollar"></i>
                             </button>
                             <a href="#" className="mx-2 btn btn-dark" title="Claim Bounty"><i className="fa-solid fa-virus-slash"></i></a>
