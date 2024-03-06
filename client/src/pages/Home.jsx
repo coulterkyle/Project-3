@@ -6,35 +6,6 @@ import { useMutation, useQuery } from '@apollo/client';
 
 const Home = () => {
 
-//   if (localStorage.getItem('accessToken') === null){
-//   useEffect(() => {
-//     const queryString = window.location.search;
-//     const urlParams = new URLSearchParams(queryString);
-//     const codeParam = urlParams.get('token');
-//     console.log('code param',codeParam)
-
-//     if(codeParam && (localStorage.getItem('accessToken') === null)) {
-//       localStorage.setItem('accessToken', codeParam);
-//     }
-
-//   }, [])
-
-//   async function getUserData(){
-//     await fetch('http://localhost:3001/getUserData', {
-//       method: 'GET',
-//       headers: {
-//         'Authorization' : "Bearer " + localStorage.getItem('accessToken')// Bearer Authorization
-//       }
-//     }).then((response) => {
-//       return response.json();
-//     }).then((data) => {
-//       console.log(data)
-//     })
-//   }
-
-//   getUserData();
-// }
-
 
   return (
 
@@ -47,7 +18,7 @@ const Home = () => {
             </div>
             <div className="col-md-8">
               <h2 className="fw-bold text-success">ARE YOU READY TO HUNT?</h2>
-              <p className="lead">Some quorky stuff about debugging other developers' apps.</p>
+              <p className="lead">Find bugs, fix issues, GET PAID</p>
               <div className="d-grid d-md-flex justify-content-md-start">
                 {/* sending to signup for now - can change or add different logic */}
                 <Link className="btn btn-success btn-lg px-4 me-md-2" to="/signup">Join the Hunt</Link>
@@ -65,7 +36,7 @@ const Home = () => {
           <div className="col">
             <div className="card mb-4 rounded-3 shadow-sm">
               {/* Links the whole box to that particular issue */}
-              <a style={{ textDecoration: 'none' }} href="http://localhost:3000/project/coulterkyle/Project-3">
+              <a style={{ textDecoration: 'none' }}>
                 <div className="card-header py-3">
                   <h4 className="my-0 fw-normal">coulterkyle Project 3</h4>
                 </div>
@@ -84,7 +55,7 @@ const Home = () => {
           <div className="col">
             <div className="card mb-4 rounded-3 shadow-sm">
               {/* Links the whole box to that particular issue */}
-              <a style={{ textDecoration: 'none' }} href="http://localhost:3000/project/coulterkyle/Project-3">
+              <a style={{ textDecoration: 'none' }}>
                 <div className="card-header py-3">
                   <h4 className="my-0 fw-normal">dcast217 Project 3</h4>
                 </div>
@@ -103,7 +74,7 @@ const Home = () => {
       <div className="col">
             <div className="card mb-4 rounded-3 shadow-sm">
               {/* Links the whole box to that particular issue */}
-              <a style={{ textDecoration: 'none' }} href="http://localhost:3000/project/coulterkyle/Project-3">
+              <a style={{ textDecoration: 'none' }}>
                 <div className="card-header py-3">
                   <h4 className="my-0 fw-normal">NatalieYaspo Project 3</h4>
                 </div>

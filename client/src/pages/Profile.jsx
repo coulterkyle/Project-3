@@ -18,10 +18,8 @@ const Profile = () => {
 
 
     //oauth
-    const CLIENT_ID = '6073f6de696178eb4484'
-
     function loginWithGithub() {
-        window.location.assign("https://github.com/login/oauth/authorize?client_id=" + CLIENT_ID);
+        window.location.assign("https://github.com/login/oauth/authorize?client_id=" + import.meta.env.VITE_GITHUB_CLIENT_ID);
     }
 
     useEffect(() => {
@@ -38,7 +36,7 @@ const Profile = () => {
         async function getUserData() {
             try {
                 const response = await fetch(
-                    'http://localhost:3001/getUserData', {
+                    import.meta.env.VITE_ROOT_URL+ '/getUserData', {
                     method: 'GET',
                     headers:
                     {
