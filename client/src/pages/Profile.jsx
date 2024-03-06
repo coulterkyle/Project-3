@@ -63,7 +63,7 @@ const Profile = () => {
     return (
         <div className="container">
             <h1>{`Welcome ${user}`}</h1>
-            <button onClick={loginWithGithub}>Verify your account with Github</button>
+            <button className='btn btn-success my-2' onClick={loginWithGithub}>Verify your account with Github</button>
 
             <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
@@ -74,7 +74,10 @@ const Profile = () => {
                     </h2>
                     <div id="collapseOne" className="accordion-collapsed collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
+
                             <MyBounties />
+
+
                         </div>
                     </div>
                 </div>
