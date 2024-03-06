@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import dotenv from 'dotenv';
 
-// https://vitejs.dev/config/
+
 export default defineConfig({
   plugins: [react()],
   server: {
@@ -9,7 +10,7 @@ export default defineConfig({
     open: true,
     proxy: {
       '/graphql': {
-        target: import.meta.env.VITE_ROOT_URL,
+        target: process.env.VITE_ROOT_URL,
         secure: false,
         changeOrigin: true
       }
