@@ -18,8 +18,7 @@ export default function UserData({ users }) {
                   </div>
                   <Link key={index} to={data.githubUsername} className="ms-auto btn btn-success">View</Link>
                 </li>
-              )
-            }
+              )}
           }
         }
         )}
